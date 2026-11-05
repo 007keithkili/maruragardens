@@ -3,150 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marura Gardens · Luxury events &amp; nature</title>
-  <!-- Font Awesome 6 (free) -->
+  <title>Marura Gardens · Luxury Events &amp; Nature</title>
+  <!-- Font Awesome 6 (free) for minimal icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts: Inter + fallback -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Cormorant Garamond (serif) + Inter (sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
   <style>
-    * {
+    /* ---------- RESET & BASE ---------- */
+    *,
+    *::before,
+    *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #ffffff;
-      color: #1e2b1e;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
-
     :root {
-      --green-deep: #1a3d1a;
-      --green-mid: #2e7d32;
-      --green-bright: #4caf50;
-      --green-soft: #e8f5e9;
-      --green-light: #c8e6c9;
+      --forest: #1e3a2f;
+      --forest-deep: #0f231a;
+      --ivory: #faf8f2;
+      --ivory-soft: #f5f1e8;
+      --beige: #e8e0d3;
+      --olive: #6b7f5e;
+      --olive-light: #8a9a7b;
+      --gold: #b9a88b;
+      --gold-soft: #d4c5ae;
+      --charcoal: #2c2c2c;
       --white: #ffffff;
-      --shadow-sm: 0 10px 24px rgba(0, 40, 0, 0.08);
-      --shadow-md: 0 20px 44px rgba(0, 30, 0, 0.12);
-      --shadow-lg: 0 30px 70px rgba(0, 20, 0, 0.2);
-      --radius-card: 36px;
+      --shadow-soft: 0 20px 60px rgba(15, 35, 26, 0.08);
+      --shadow-image: 0 30px 80px rgba(15, 35, 26, 0.15);
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    h1, h2, h3 {
-      font-weight: 700;
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--ivory);
+      color: var(--charcoal);
+      line-height: 1.7;
+      overflow-x: hidden;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ---------- TYPOGRAPHY ---------- */
+    h1, h2, h3, h4 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--forest);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 400;
       letter-spacing: -0.02em;
-      line-height: 1.2;
     }
 
     h2 {
-      font-size: 2.8rem;
-      color: var(--green-deep);
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .section-title h2 {
-      font-size: 2.8rem;
-      color: var(--green-deep);
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title h2::after {
-      content: '';
-      display: block;
-      width: 90px;
-      height: 5px;
-      background: linear-gradient(90deg, var(--green-bright), var(--green-mid));
-      margin: 0.8rem auto 0;
-      border-radius: 8px;
-    }
-
-    .section-title p {
-      font-size: 1.3rem;
-      color: #3a5a3a;
-      max-width: 750px;
-      margin: 1.2rem auto 0;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
       font-weight: 400;
     }
 
+    h3 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 500;
+    }
+
+    h4 {
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-weight: 600;
+    }
+
+    p {
+      font-size: clamp(1rem, 1.2vw, 1.15rem);
+      color: #3a3a3a;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .text-serif {
+      font-family: var(--font-serif);
+    }
+
+    /* ---------- LAYOUT ---------- */
     .container {
-      width: 92%;
-      max-width: 1300px;
+      width: 90%;
+      max-width: 1320px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
     }
 
-    /* ---- Buttons ---- */
-    .btn {
-      display: inline-block;
-      background-color: var(--green-mid);
-      color: white;
-      font-weight: 700;
-      padding: 1.1rem 2.8rem;
-      border-radius: 60px;
-      text-decoration: none;
-      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1);
-      border: 2px solid transparent;
-      font-size: 1.1rem;
-      letter-spacing: 0.3px;
-      box-shadow: 0 14px 30px rgba(46, 125, 50, 0.35);
-      cursor: pointer;
+    .container-narrow {
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
-    .btn:hover {
-      background-color: var(--green-deep);
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 24px 44px rgba(29, 75, 29, 0.45);
+    section {
+      padding: clamp(5rem, 10vw, 9rem) 0;
+      position: relative;
     }
 
-    .btn-light {
-      background-color: white;
-      color: var(--green-deep);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+    .section-title {
+      max-width: 700px;
+      margin-bottom: clamp(3rem, 6vw, 5rem);
     }
 
-    .btn-light:hover {
-      background-color: #f0f7f0;
-      color: var(--green-deep);
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 26px 48px rgba(0, 0, 0, 0.35);
+    .section-title.center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .btn-transparent {
-      background: transparent;
-      border: 2px solid white;
-      color: white;
-      box-shadow: none;
+    .section-title h2 {
+      margin-bottom: 1.2rem;
     }
 
-    .btn-transparent:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: white;
-      transform: translateY(-5px);
+    .section-title p {
+      font-size: clamp(1rem, 1.3vw, 1.2rem);
+      color: #555;
+      max-width: 600px;
     }
 
-    /* ---- Navbar ---- */
+    .section-title.center p {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Thin divider */
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2rem 0;
+    }
+
+    .divider.center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ---------- NAVIGATION ---------- */
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background-color: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 6px 28px rgba(0, 40, 0, 0.08);
       z-index: 1000;
-      padding: 1rem 0;
-      transition: all 0.2s;
+      padding: 1.5rem 0;
+      transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
+      background: transparent;
+    }
+
+    .navbar.scrolled {
+      background: rgba(250, 248, 242, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 0.9rem 0;
+      box-shadow: 0 1px 30px rgba(15, 35, 26, 0.08);
     }
 
     .navbar .container {
@@ -156,854 +208,1863 @@
     }
 
     .logo {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--green-deep);
-      letter-spacing: -0.5px;
-      text-decoration: none;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      transition: color var(--transition);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 0.6rem;
     }
 
-    .logo i {
-      color: var(--green-mid);
-      font-size: 2.1rem;
+    .navbar.scrolled .logo {
+      color: var(--forest);
+    }
+
+    .logo-icon {
+      font-size: 1.4rem;
+      color: var(--gold);
+      transition: color var(--transition);
+    }
+
+    .navbar.scrolled .logo-icon {
+      color: var(--olive);
     }
 
     .nav-links {
       display: flex;
-      gap: 2.6rem;
       align-items: center;
+      gap: 2.5rem;
     }
 
     .nav-links a {
-      text-decoration: none;
-      color: #1e2b1e;
-      font-weight: 600;
-      font-size: 1.05rem;
-      transition: color 0.2s;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .navbar.scrolled .nav-links a {
+      color: var(--charcoal);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
     .nav-links a:hover {
-      color: var(--green-mid);
+      color: var(--white);
+    }
+
+    .navbar.scrolled .nav-links a:hover {
+      color: var(--forest);
     }
 
     .nav-cta {
-      background-color: var(--green-mid);
-      color: white !important;
-      padding: 0.7rem 2rem;
-      border-radius: 40px;
-      font-weight: 600;
+      font-size: 0.75rem !important;
+      letter-spacing: 0.18em !important;
+      padding: 0.8rem 2rem !important;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 0;
+      color: var(--white) !important;
+      transition: all var(--transition);
+      background: transparent;
     }
 
     .nav-cta:hover {
-      background-color: var(--green-deep);
-      color: white !important;
+      background: var(--white);
+      color: var(--forest) !important;
+      border-color: var(--white);
     }
 
+    .navbar.scrolled .nav-cta {
+      border-color: var(--olive);
+      color: var(--forest) !important;
+    }
+
+    .navbar.scrolled .nav-cta:hover {
+      background: var(--forest);
+      color: var(--white) !important;
+      border-color: var(--forest);
+    }
+
+    /* Mobile toggle */
     .menu-toggle {
       display: none;
-      font-size: 2rem;
-      color: var(--green-deep);
       background: none;
       border: none;
       cursor: pointer;
+      padding: 0.5rem;
+      color: var(--white);
+      font-size: 1.5rem;
+      transition: color var(--transition);
     }
 
-    /* ---- HERO (lively wide background, fixed for parallax) ---- */
+    .navbar.scrolled .menu-toggle {
+      color: var(--forest);
+    }
+
+    /* ---------- HERO ---------- */
     .hero {
       min-height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      align-items: flex-end;
       position: relative;
-      background: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat fixed;
       isolation: isolate;
+      padding-bottom: clamp(5rem, 10vh, 9rem);
     }
 
-    .hero::before {
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      z-index: -2;
+      transform: scale(1.02);
+      transition: transform 8s ease-out;
+    }
+
+    .hero.loaded .hero-bg {
+      transform: scale(1);
+    }
+
+    .hero::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(105deg, rgba(0, 30, 0, 0.65) 0%, rgba(0, 20, 0, 0.3) 100%);
+      background: linear-gradient(
+        to top,
+        rgba(15, 35, 26, 0.75) 0%,
+        rgba(15, 35, 26, 0.35) 40%,
+        rgba(15, 35, 26, 0.15) 70%,
+        rgba(15, 35, 26, 0.3) 100%
+      );
       z-index: -1;
     }
 
     .hero-content {
-      color: white;
-      max-width: 1100px;
-      padding: 2rem;
-      margin-top: 5rem;
-      animation: fadeInUp 1s ease;
+      width: 100%;
+      max-width: 1000px;
+      animation: fadeUp 1.2s ease 0.2s both;
+    }
+
+    .hero-content .section-label {
+      color: var(--gold-soft);
+      margin-bottom: 1.5rem;
     }
 
     .hero-content h1 {
-      font-size: 5.4rem;
-      font-weight: 800;
-      line-height: 1.05;
-      text-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-      margin-bottom: 1.6rem;
-      letter-spacing: -2px;
+      color: var(--white);
+      margin-bottom: 1.8rem;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      max-width: 900px;
     }
 
     .hero-content p {
-      font-size: 1.7rem;
-      font-weight: 400;
-      max-width: 850px;
-      margin: 0 auto 3rem;
-      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+      font-size: clamp(1rem, 1.4vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.8;
     }
 
-    .hero-buttons {
+    .hero-actions {
       display: flex;
-      gap: 1.8rem;
-      justify-content: center;
+      gap: 1.2rem;
       flex-wrap: wrap;
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ---- Sections ---- */
-    section {
-      padding: 7rem 0;
-    }
-
-    .bg-soft {
-      background-color: var(--green-soft);
-    }
-
-    /* ---- Experience cards (interactive lift) ---- */
-    .streams-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
-      margin-top: 2rem;
-    }
-
-    .stream-card {
-      background: white;
-      border-radius: var(--radius-card);
-      padding: 2.4rem 2.2rem;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1), box-shadow 0.4s;
-      border: 1px solid rgba(46, 125, 50, 0.12);
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stream-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 8px;
-      background: linear-gradient(90deg, var(--green-bright), var(--green-mid));
-      transition: opacity 0.3s;
-    }
-
-    .stream-card:hover {
-      transform: translateY(-14px) scale(1.01);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--green-light);
-    }
-
-    .stream-icon {
-      font-size: 2.8rem;
-      color: var(--green-mid);
-      margin-bottom: 1.6rem;
-      background: var(--green-soft);
-      width: 80px;
-      height: 80px;
-      display: flex;
+    .btn {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      border-radius: 26px;
-      transition: background 0.3s, transform 0.3s;
-    }
-
-    .stream-card:hover .stream-icon {
-      background: var(--green-light);
-      transform: rotate(6deg) scale(1.05);
-    }
-
-    .stream-card h3 {
-      font-size: 1.9rem;
-      margin-bottom: 1rem;
-      color: var(--green-deep);
-    }
-
-    .stream-card p {
-      color: #2c3e2c;
-      margin-bottom: 1.8rem;
-      flex: 1;
-      font-size: 1.1rem;
-    }
-
-    .stream-card ul {
-      list-style: none;
-      margin: 0.5rem 0 0.5rem;
-    }
-
-    .stream-card li {
-      padding: 0.4rem 0;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 1rem;
-      color: #2c3e2c;
-    }
-
-    .stream-card li i {
-      color: var(--green-bright);
-      font-size: 0.95rem;
-      width: 20px;
-    }
-
-    /* ---- Interactive image grid with text overlay (expenditure look) ---- */
-    .image-showcase {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .image-showcase-item {
-      border-radius: 32px;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.4s, box-shadow 0.4s;
-      aspect-ratio: 4 / 3;
-      position: relative;
-      background: #e0eee0;
+      gap: 0.8rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 1.1rem 2.4rem;
+      border: 1px solid transparent;
+      border-radius: 0;
       cursor: pointer;
+      transition: all var(--transition);
+      background: none;
+      line-height: 1;
     }
 
-    .image-showcase-item img {
+    .btn-primary {
+      background: var(--white);
+      color: var(--forest);
+      border-color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.55);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--forest);
+      border-color: var(--white);
+    }
+
+    .btn-dark {
+      background: var(--forest);
+      color: var(--white);
+      border-color: var(--forest);
+    }
+
+    .btn-dark:hover {
+      background: transparent;
+      color: var(--forest);
+      border-color: var(--forest);
+    }
+
+    /* ---------- INTRO ---------- */
+    .intro {
+      background: var(--ivory);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 8vw, 7rem);
+      align-items: center;
+    }
+
+    .intro-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-text p {
+      margin-bottom: 1.2rem;
+      color: #555;
+    }
+
+    .intro-image {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .intro-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      transition: transform 0.8s cubic-bezier(0.2, 0.9, 0.4, 1);
+      transition: transform 1.2s ease;
     }
 
-    .image-showcase-item:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: var(--shadow-lg);
+    .intro-image:hover img {
+      transform: scale(1.04);
     }
 
-    .image-showcase-item:hover img {
-      transform: scale(1.08);
-    }
-
-    /* overlay text that appears on hover – interactive */
-    .image-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 2rem 1.8rem 1.8rem;
-      background: linear-gradient(to top, rgba(0, 20, 0, 0.85) 0%, transparent 100%);
-      color: white;
-      transform: translateY(12px);
-      opacity: 0;
-      transition: all 0.35s ease;
-    }
-
-    .image-showcase-item:hover .image-label {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .image-label h4 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-      color: white;
-    }
-
-    .image-label p {
-      font-size: 0.95rem;
-      opacity: 0.9;
-      color: #e0f0e0;
-    }
-
-    /* ---- Background strips (lively wide visuals) ---- */
-    .bg-strip {
-      position: relative;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      padding: 8rem 0;
-      isolation: isolate;
-    }
-
-    .bg-strip::before {
+    .intro-image::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 25, 0, 0.5);
-      z-index: -1;
+      border: 1px solid rgba(185, 168, 139, 0.3);
+      margin: 1.5rem;
+      pointer-events: none;
     }
 
-    .bg-strip .container {
+    /* ---------- EDITORIAL EXPERIENCES ---------- */
+    .experiences {
+      background: var(--ivory-soft);
+    }
+
+    .experience-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      align-items: stretch;
+      min-height: 480px;
+    }
+
+    .experience-row.reverse {
+      direction: rtl;
+    }
+
+    .experience-row.reverse > * {
+      direction: ltr;
+    }
+
+    .experience-image {
       position: relative;
-      color: white;
-      text-align: center;
+      overflow: hidden;
+      min-height: 400px;
     }
 
-    .bg-strip h2 {
-      color: white;
-      font-size: 3rem;
-      margin-bottom: 1.4rem;
-      text-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    .experience-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.4s ease;
     }
 
-    .bg-strip p {
-      font-size: 1.5rem;
-      max-width: 850px;
-      margin: 0 auto;
-      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    .experience-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .experience-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(2rem, 5vw, 5rem);
+      background: var(--white);
+    }
+
+    .experience-content .section-label {
+      margin-bottom: 1rem;
+    }
+
+    .experience-content h3 {
+      margin-bottom: 1.2rem;
+    }
+
+    .experience-content p {
+      margin-bottom: 1.8rem;
+      color: #555;
+    }
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .experience-list li {
+      font-size: 0.95rem;
+      color: #444;
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
       font-weight: 300;
     }
 
-    /* ---- Features grid (interactive) ---- */
-    .features-grid {
+    .experience-list li::before {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 0.55em;
+    }
+
+    /* Experience grid for smaller items */
+    .experience-grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 0;
     }
 
-    .feature-item {
-      background: white;
-      padding: 2.2rem 1.8rem;
-      border-radius: 28px;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid #e2f0e2;
-      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    .experience-grid-3 .experience-image {
+      min-height: 320px;
     }
 
-    .feature-item:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-md);
-      background: #fafffa;
+    .experience-grid-3 .experience-content {
+      padding: 2.5rem;
     }
 
-    .feature-item i {
-      font-size: 2.8rem;
-      color: var(--green-mid);
-      margin-bottom: 1.2rem;
-      transition: transform 0.3s;
+    .experience-grid-3 .experience-content h3 {
+      font-size: 1.5rem;
     }
 
-    .feature-item:hover i {
-      transform: scale(1.15);
+    /* ---------- WEDDING SECTION ---------- */
+    .weddings {
+      background: var(--forest);
+      color: var(--white);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
     }
 
-    .feature-item h4 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--green-deep);
+    .weddings-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 650px;
     }
 
-    /* ---- Event tags (interactive pills) ---- */
-    .event-tags {
+    .weddings-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .weddings-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.6s ease;
+    }
+
+    .weddings-image:hover img {
+      transform: scale(1.04);
+    }
+
+    .weddings-content {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.4rem;
+      flex-direction: column;
       justify-content: center;
-      margin-top: 2.8rem;
+      padding: clamp(3rem, 6vw, 6rem);
     }
 
-    .event-tag {
-      background: white;
-      border-radius: 80px;
-      padding: 1.2rem 2.6rem;
-      font-weight: 700;
-      color: var(--green-deep);
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--green-light);
-      font-size: 1.1rem;
+    .weddings-content .section-label {
+      color: var(--gold-soft);
+    }
+
+    .weddings-content h2 {
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .weddings-content p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+
+    .weddings-content .btn {
+      align-self: flex-start;
+    }
+
+    .weddings-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 2rem;
+      margin-top: 1rem;
+    }
+
+    .weddings-list li {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+      font-weight: 300;
+    }
+
+    .weddings-list li::before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: 0.55em;
+    }
+
+    /* ---------- FULL-WIDTH IMAGE BREAK ---------- */
+    .image-break {
+      height: clamp(350px, 55vh, 600px);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      position: relative;
       display: flex;
       align-items: center;
-      gap: 12px;
-      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1);
-      cursor: default;
+      justify-content: center;
+      text-align: center;
     }
 
-    .event-tag i {
-      color: var(--green-mid);
-      font-size: 1.2rem;
+    .image-break::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 35, 26, 0.45);
     }
 
-    .event-tag:hover {
-      background: var(--green-mid);
-      color: white;
-      border-color: var(--green-mid);
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: var(--shadow-lg);
+    .image-break-content {
+      position: relative;
+      z-index: 1;
+      color: var(--white);
+      max-width: 700px;
+      padding: 2rem;
     }
 
-    .event-tag:hover i {
-      color: white;
+    .image-break-content h2 {
+      color: var(--white);
+      margin-bottom: 1rem;
     }
 
-    /* ---- Footer ---- */
+    .image-break-content p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+    }
+
+    /* ---------- CAMPING ---------- */
+    .camping {
+      background: var(--ivory);
+    }
+
+    .camping-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: center;
+    }
+
+    .camping-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .camping-text p {
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    .camping-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .camping-images .img-wrap {
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+
+    .camping-images .img-wrap:first-child {
+      margin-top: 2.5rem;
+    }
+
+    .camping-images .img-wrap:last-child {
+      margin-bottom: 2.5rem;
+    }
+
+    .camping-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
+
+    .camping-images img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ---------- CLASSIC CARS + PETS ---------- */
+    .duo-section {
+      background: var(--ivory-soft);
+    }
+
+    .duo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .duo-item {
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .duo-item img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.6s ease;
+    }
+
+    .duo-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .duo-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 35, 26, 0.85) 0%, rgba(15, 35, 26, 0.2) 50%, transparent 100%);
+      z-index: 1;
+    }
+
+    .duo-content {
+      position: relative;
+      z-index: 2;
+      padding: clamp(2rem, 4vw, 3.5rem);
+      color: var(--white);
+    }
+
+    .duo-content .section-label {
+      color: var(--gold-soft);
+    }
+
+    .duo-content h3 {
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .duo-content p {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+      max-width: 400px;
+    }
+
+    .duo-content .experience-list li {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .duo-content .experience-list li::before {
+      background: var(--gold);
+    }
+
+    /* ---------- GALLERY (asymmetrical editorial) ---------- */
+    .gallery-section {
+      background: var(--ivory);
+    }
+
+    .gallery-editorial {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(180px, auto);
+      gap: 1.2rem;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-item:nth-child(1) {
+      grid-column: span 7;
+      grid-row: span 2;
+    }
+
+    .gallery-item:nth-child(2) {
+      grid-column: span 5;
+      grid-row: span 1;
+    }
+
+    .gallery-item:nth-child(3) {
+      grid-column: span 5;
+      grid-row: span 1;
+    }
+
+    .gallery-item:nth-child(4) {
+      grid-column: span 4;
+      grid-row: span 1;
+    }
+
+    .gallery-item:nth-child(5) {
+      grid-column: span 4;
+      grid-row: span 1;
+    }
+
+    .gallery-item:nth-child(6) {
+      grid-column: span 4;
+      grid-row: span 1;
+    }
+
+    .gallery-item:nth-child(7) {
+      grid-column: span 8;
+      grid-row: span 1;
+    }
+
+    .gallery-item:nth-child(8) {
+      grid-column: span 4;
+      grid-row: span 1;
+    }
+
+    /* ---------- EVENTS ---------- */
+    .events-section {
+      background: var(--ivory-soft);
+    }
+
+    .events-editorial {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem, 6vw, 6rem);
+      align-items: center;
+    }
+
+    .events-text h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    .events-text p {
+      color: #555;
+      margin-bottom: 2.5rem;
+    }
+
+    .events-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .event-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--beige);
+      gap: 1.5rem;
+    }
+
+    .event-item:first-child {
+      border-top: 1px solid var(--beige);
+    }
+
+    .event-name {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--forest);
+    }
+
+    .event-timing {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--olive);
+      white-space: nowrap;
+      font-weight: 400;
+    }
+
+    .events-image {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .events-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.4s ease;
+    }
+
+    .events-image:hover img {
+      transform: scale(1.04);
+    }
+
+    /* ---------- FACILITIES ---------- */
+    .facilities {
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .facilities .section-label {
+      color: var(--gold-soft);
+    }
+
+    .facilities h2 {
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .facilities .section-title p {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .facility-item {
+      padding: 2.5rem 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      transition: background var(--transition);
+    }
+
+    .facility-item:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .facility-item:nth-child(4n) {
+      border-right: none;
+    }
+
+    .facility-icon {
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .facility-item h4 {
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .facility-item p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ---------- CONTACT / FOOTER ---------- */
     .footer {
-      background-color: #0b1f0b;
-      color: #d9e6d9;
-      padding: 5rem 0 3rem;
+      background: var(--forest-deep);
+      color: rgba(255, 255, 255, 0.7);
+      padding: clamp(4rem, 8vw, 7rem) 0 2rem;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 3rem;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      margin-bottom: 4rem;
+    }
+
+    .footer-brand h3 {
+      color: var(--white);
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-brand p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.95rem;
+      max-width: 320px;
+      margin-bottom: 1.8rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .footer-contact-item i {
+      color: var(--gold);
+      width: 16px;
+      font-size: 0.85rem;
     }
 
     .footer h4 {
-      color: white;
-      margin-bottom: 1.8rem;
-      font-weight: 700;
-      font-size: 1.3rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 1.5rem;
     }
 
-    .footer a {
-      color: #b8d0b8;
-      text-decoration: none;
+    .footer-links a {
       display: block;
-      margin-bottom: 1rem;
-      transition: color 0.25s, transform 0.25s;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 0.8rem;
+      transition: color var(--transition), transform var(--transition);
+      font-weight: 300;
     }
 
-    .footer a:hover {
-      color: white;
-      transform: translateX(6px);
+    .footer-links a:hover {
+      color: var(--white);
+      transform: translateX(4px);
     }
 
-    .footer i {
-      margin-right: 12px;
-      width: 22px;
-      color: var(--green-light);
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.35);
     }
 
-    .copyright {
-      border-top: 1px solid #2c3e2c;
-      margin-top: 4rem;
-      padding-top: 2.5rem;
-      text-align: center;
-      font-size: 1rem;
-      color: #9bb59b;
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    /* ---- Responsive ---- */
-    @media (max-width: 1200px) {
-      .hero-content h1 {
-        font-size: 4.6rem;
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- REDUCED MOTION ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .hero-bg {
+        transform: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1100px) {
+      .facilities-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .facility-item:nth-child(4n) {
+        border-right: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .facility-item:nth-child(3n) {
+        border-right: none;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
     @media (max-width: 900px) {
-      .hero-content h1 {
-        font-size: 3.6rem;
-      }
       .nav-links {
         display: none;
       }
+
       .menu-toggle {
         display: block;
       }
-      .navbar .container {
-        position: relative;
-      }
+
       .nav-links.active {
         display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 0;
         left: 0;
         width: 100%;
-        background: white;
-        padding: 2.5rem;
-        box-shadow: var(--shadow-lg);
+        height: 100vh;
+        background: var(--ivory);
+        padding: 6rem 2rem 3rem;
         gap: 1.8rem;
-        border-radius: 0 0 36px 36px;
+        z-index: 999;
+        overflow-y: auto;
+        align-items: center;
+        justify-content: center;
       }
-      .bg-strip h2 {
-        font-size: 2.4rem;
+
+      .nav-links.active a {
+        color: var(--forest);
+        font-size: 1.1rem;
+      }
+
+      .nav-links.active .nav-cta {
+        color: var(--forest) !important;
+        border-color: var(--forest);
+      }
+
+      .menu-toggle.active {
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1001;
+        color: var(--forest) !important;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .intro-image {
+        aspect-ratio: 16/10;
+        order: -1;
+      }
+
+      .experience-row,
+      .experience-row.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        min-height: auto;
+      }
+
+      .experience-row.reverse > * {
+        direction: ltr;
+      }
+
+      .experience-image {
+        min-height: 300px;
+      }
+
+      .experience-grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-grid-3 .experience-image {
+        min-height: 280px;
+      }
+
+      .weddings-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .weddings-image {
+        min-height: 350px;
+      }
+
+      .camping-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .camping-images .img-wrap:first-child {
+        margin-top: 0;
+      }
+
+      .camping-images .img-wrap:last-child {
+        margin-bottom: 0;
+      }
+
+      .duo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .duo-item {
+        min-height: 400px;
+      }
+
+      .gallery-editorial {
+        grid-template-columns: repeat(6, 1fr);
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-column: span 6;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(2) {
+        grid-column: span 3;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(3) {
+        grid-column: span 3;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(4) {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(5) {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(6) {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(7) {
+        grid-column: span 6;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(8) {
+        grid-column: span 6;
+        grid-row: span 1;
+      }
+
+      .events-editorial {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .events-image {
+        aspect-ratio: 16/10;
+        order: -1;
+      }
+
+      .facilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .facility-item:nth-child(3n) {
+        border-right: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .facility-item:nth-child(2n) {
+        border-right: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
       }
     }
 
     @media (max-width: 600px) {
       .hero-content h1 {
-        font-size: 2.8rem;
+        font-size: clamp(2.4rem, 9vw, 3.2rem);
       }
-      .hero-content p {
-        font-size: 1.2rem;
+
+      .hero-actions {
+        flex-direction: column;
+        gap: 0.8rem;
       }
-      section {
-        padding: 4.5rem 0;
+
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
       }
-      h2 {
-        font-size: 2.2rem;
+
+      .weddings-list {
+        grid-template-columns: 1fr;
       }
-      .btn {
-        padding: 1rem 2.2rem;
-        font-size: 1rem;
+
+      .camping-images {
+        grid-template-columns: 1fr;
       }
-      .bg-strip h2 {
-        font-size: 2.2rem;
+
+      .gallery-editorial {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px;
       }
-      .bg-strip p {
-        font-size: 1.15rem;
+
+      .gallery-item:nth-child(1),
+      .gallery-item:nth-child(2),
+      .gallery-item:nth-child(3),
+      .gallery-item:nth-child(4),
+      .gallery-item:nth-child(5),
+      .gallery-item:nth-child(6),
+      .gallery-item:nth-child(7),
+      .gallery-item:nth-child(8) {
+        grid-column: span 1;
+        grid-row: span 1;
       }
-      .image-showcase-item {
-        aspect-ratio: 1 / 1;
+
+      .facilities-grid {
+        grid-template-columns: 1fr;
       }
-      .image-label h4 {
-        font-size: 1.3rem;
+
+      .facility-item {
+        border-right: none !important;
       }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* Ensure images never cause horizontal overflow */
+    img,
+    video,
+    iframe {
+      max-width: 100%;
+    }
+
+    /* Lazy loading placeholder background */
+    .lazy-bg {
+      background-color: var(--beige);
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
     <div class="container">
-      <a href="#" class="logo">
-        <i class="fas fa-leaf"></i> Marura Gardens
+      <a href="#home" class="logo">
+        <i class="fas fa-leaf logo-icon"></i>
+        Marura Gardens
       </a>
-      <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
       <div class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
         <a href="#experiences">Experiences</a>
+        <a href="#weddings">Weddings</a>
+        <a href="#camping">Camping</a>
         <a href="#gallery">Gallery</a>
         <a href="#events">Events</a>
-        <a href="#contact" class="nav-cta">Plan a Visit</a>
+        <a href="#facilities">Facilities</a>
+        <a href="#contact" class="nav-cta">Plan Your Visit</a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Where nature meets celebration</h1>
-      <p>Four acres of landscaped gardens, premium events, glamping &amp; unforgettable outdoor moments — in the heart of North Rift.</p>
-      <div class="hero-buttons">
-        <a href="#experiences" class="btn btn-light">Explore Experiences</a>
-        <a href="#contact" class="btn btn-transparent">Book a Tour</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- INTRO -->
-  <section style="padding: 5rem 0 3rem;">
-    <div class="container" style="text-align: center; max-width: 1000px;">
-      <h2 style="font-size: 2.6rem;">A destination for every season</h2>
-      <p style="font-size: 1.4rem; color: #3a5a3a; margin-top: 1.2rem;">Marura Gardens is more than a wedding venue — it's a year-round lifestyle and events destination. From classic car Sundays to family camping weekends, we blend natural beauty with curated experiences.</p>
-    </div>
-  </section>
-
-  <!-- EXPERIENCES -->
-  <section id="experiences" class="bg-soft">
+  <!-- ========== HERO ========== -->
+  <header class="hero" id="home">
+    <div class="hero-bg"></div>
     <div class="container">
-      <div class="section-title">
-        <h2>Unique experiences at Marura</h2>
-        <p>Discover our expanded offerings designed to bring people together throughout the year.</p>
+      <div class="hero-content">
+        <span class="section-label">North Rift · Kenya</span>
+        <h1>Where nature becomes the occasion.</h1>
+        <p>Four acres of landscaped gardens, exclusive events, luxury glamping and quiet moments — crafted for those who appreciate the extraordinary.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Begin Your Journey</a>
+          <a href="#experiences" class="btn btn-outline">Explore Marura</a>
+        </div>
       </div>
-      <div class="streams-grid">
-        <div class="stream-card">
-          <div class="stream-icon"><i class="fas fa-glass-cheers"></i></div>
-          <h3>Premium Events Venue</h3>
-          <p>From weddings to corporate conferences, our landscaped gardens and clubhouse provide a stunning backdrop.</p>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Weddings &amp; receptions</li>
-            <li><i class="fas fa-check-circle"></i> Corporate conferences</li>
-            <li><i class="fas fa-check-circle"></i> Team building &amp; retreats</li>
-            <li><i class="fas fa-check-circle"></i> Graduations &amp; birthdays</li>
-          </ul>
+    </div>
+  </header>
+
+  <!-- ========== INTRO ========== -->
+  <section class="intro" id="about">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-text reveal">
+          <span class="section-label">The Marura Story</span>
+          <h2>A destination for every season.</h2>
+          <div class="divider"></div>
+          <p>Marura Gardens is more than a wedding venue — it is a year-round lifestyle destination. From classic car Sundays to family camping weekends, we blend natural beauty with curated experiences.</p>
+          <p>Set within four acres of beautifully landscaped gardens, our estate offers a rare combination of privacy, serenity and space — a canvas for celebrations, retreats and quiet escapes.</p>
+          <p style="font-style: italic; color: var(--olive); font-family: var(--font-serif); font-size: 1.2rem; margin-top: 2rem;">"A place where the landscape itself becomes part of the memory."</p>
         </div>
-        <div class="stream-card">
-          <div class="stream-icon"><i class="fas fa-campground"></i></div>
-          <h3>Luxury Camping &amp; Cabins</h3>
-          <p>Wooden cabins, safari glamping tents, campfire areas and nature trails for a perfect escape.</p>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> 8–15 wooden cabins</li>
-            <li><i class="fas fa-check-circle"></i> Luxury safari tents</li>
-            <li><i class="fas fa-check-circle"></i> Outdoor cinema nights</li>
-            <li><i class="fas fa-check-circle"></i> Guided nature walks</li>
-          </ul>
+        <div class="intro-image reveal">
+          <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=2069&auto=format&fit=crop" alt="Marura Gardens landscaped garden" loading="lazy">
         </div>
-        <div class="stream-card">
-          <div class="stream-icon"><i class="fas fa-car-side"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EDITORIAL EXPERIENCES ========== -->
+  <section class="experiences" id="experiences">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Curated Experiences</span>
+        <h2>Unique experiences at Marura</h2>
+        <p>Discover our expanded offerings designed to bring people together throughout the year — each shaped by the landscape.</p>
+      </div>
+    </div>
+
+    <!-- Premium Events -->
+    <div class="experience-row">
+      <div class="experience-image">
+        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2070&auto=format&fit=crop" alt="Premium events venue at Marura Gardens" loading="lazy">
+      </div>
+      <div class="experience-content">
+        <span class="section-label">01</span>
+        <h3>Premium Events Venue</h3>
+        <p>From intimate garden ceremonies to large corporate gatherings, our landscaped grounds and clubhouse provide a stunning, flexible backdrop for every occasion.</p>
+        <ul class="experience-list">
+          <li>Weddings &amp; receptions</li>
+          <li>Corporate conferences</li>
+          <li>Team building &amp; retreats</li>
+          <li>Graduations &amp; birthdays</li>
+          <li>Product launches &amp; family reunions</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Luxury Camping -->
+    <div class="experience-row reverse">
+      <div class="experience-image">
+        <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1974&auto=format&fit=crop" alt="Luxury glamping tents at Marura Gardens" loading="lazy">
+      </div>
+      <div class="experience-content">
+        <span class="section-label">02</span>
+        <h3>Luxury Camping &amp; Cabins</h3>
+        <p>Wooden cabins, safari glamping tents and campfire areas set within the gardens — a refined escape into nature without sacrificing comfort.</p>
+        <ul class="experience-list">
+          <li>8–15 wooden cabins</li>
+          <li>Luxury safari tents (glamping)</li>
+          <li>Outdoor cinema nights</li>
+          <li>Guided nature walks</li>
+          <li>Bicycle hire &amp; bonfire packages</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Classic Cars + Pets (grid of 2) -->
+    <div class="experience-grid-3">
+      <div class="experience-row" style="min-height: 420px;">
+        <div class="experience-image">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" alt="Classic car exhibition at Marura Gardens" loading="lazy">
+        </div>
+        <div class="experience-content">
+          <span class="section-label">03</span>
           <h3>Classic Car &amp; Vintage Events</h3>
-          <p>Monthly gatherings for collectors and enthusiasts with exhibitions, live music and food markets.</p>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Classic car exhibitions</li>
-            <li><i class="fas fa-check-circle"></i> Vintage motorcycle displays</li>
-            <li><i class="fas fa-check-circle"></i> Awards &amp; live music</li>
-            <li><i class="fas fa-check-circle"></i> Auto vendors &amp; photography</li>
+          <p>Monthly gatherings for collectors and enthusiasts — exhibitions, live music and food markets set against the gardens.</p>
+          <ul class="experience-list">
+            <li>Classic car exhibitions</li>
+            <li>Vintage motorcycle displays</li>
+            <li>Awards &amp; live music</li>
+            <li>Auto vendors &amp; photography</li>
           </ul>
         </div>
-        <div class="stream-card">
-          <div class="stream-icon"><i class="fas fa-dog"></i></div>
+      </div>
+
+      <div class="experience-row" style="min-height: 420px;">
+        <div class="experience-image">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop" alt="Pet festival at Marura Gardens" loading="lazy">
+        </div>
+        <div class="experience-content">
+          <span class="section-label">04</span>
           <h3>Pet Events</h3>
           <p>Quarterly pet festivals with shows, clinics, adoption days and fun competitions for all pet lovers.</p>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Dog shows &amp; cat competitions</li>
-            <li><i class="fas fa-check-circle"></i> Pet fashion &amp; grooming</li>
-            <li><i class="fas fa-check-circle"></i> Veterinary clinics</li>
-            <li><i class="fas fa-check-circle"></i> Adoption &amp; agility courses</li>
+          <ul class="experience-list">
+            <li>Dog shows &amp; cat competitions</li>
+            <li>Pet fashion &amp; grooming</li>
+            <li>Veterinary clinics</li>
+            <li>Adoption &amp; agility courses</li>
           </ul>
         </div>
-        <div class="stream-card">
-          <div class="stream-icon"><i class="fas fa-tree"></i></div>
-          <h3>Weekend Family Park</h3>
-          <p>Open green spaces with playgrounds, picnics, archery, horse riding and farmers' markets.</p>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Children's playground</li>
-            <li><i class="fas fa-check-circle"></i> Horse riding &amp; archery</li>
-            <li><i class="fas fa-check-circle"></i> Food festival weekends</li>
-            <li><i class="fas fa-check-circle"></i> Farmers' market</li>
+      </div>
+    </div>
+
+    <!-- Weekend Family Park -->
+    <div class="experience-row">
+      <div class="experience-image">
+        <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1976&auto=format&fit=crop" alt="Family park at Marura Gardens" loading="lazy">
+      </div>
+      <div class="experience-content">
+        <span class="section-label">05</span>
+        <h3>Weekend Family Park</h3>
+        <p>Open green spaces with playgrounds, picnics, archery, horse riding and farmers' markets — a place for families to breathe.</p>
+        <ul class="experience-list">
+          <li>Children's playground</li>
+          <li>Horse riding &amp; archery</li>
+          <li>Food festival weekends</li>
+          <li>Farmers' market</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Corporate -->
+    <div class="experience-row reverse">
+      <div class="experience-image">
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="Corporate retreat at Marura Gardens" loading="lazy">
+      </div>
+      <div class="experience-content">
+        <span class="section-label">06</span>
+        <h3>Corporate Packages</h3>
+        <p>Tailored retreats, team building and outdoor workshops designed to inspire, connect and refocus.</p>
+        <ul class="experience-list">
+          <li>Leadership retreats</li>
+          <li>Executive meetings</li>
+          <li>Annual staff parties</li>
+          <li>Outdoor workshops</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WEDDINGS & EVENTS ========== -->
+  <section class="weddings" id="weddings">
+    <div class="weddings-inner">
+      <div class="weddings-image">
+        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2069&auto=format&fit=crop" alt="Elegant outdoor wedding at Marura Gardens" loading="lazy">
+      </div>
+      <div class="weddings-content reveal">
+        <span class="section-label">Weddings &amp; Celebrations</span>
+        <h2>The perfect setting for your most important day.</h2>
+        <p>With four acres of landscaped gardens, a clubhouse for indoor functions and a peaceful natural environment, Marura Gardens offers an unforgettable backdrop for weddings and milestone celebrations.</p>
+        <ul class="weddings-list">
+          <li>Weddings &amp; receptions</li>
+          <li>Baby showers</li>
+          <li>Birthday parties</li>
+          <li>Church retreats</li>
+          <li>Graduation celebrations</li>
+          <li>Family reunions</li>
+        </ul>
+        <div style="margin-top: 2.5rem;">
+          <a href="#contact" class="btn btn-primary">Enquire About Your Day</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FULL-WIDTH IMAGE BREAK ========== -->
+  <div class="image-break" style="background-image: url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=2070&auto=format&fit=crop');">
+    <div class="image-break-content">
+      <h2>Breathtaking surroundings</h2>
+      <p>Four acres of landscaped gardens, a peaceful natural environment — perfect for photography, relaxation and celebration.</p>
+    </div>
+  </div>
+
+  <!-- ========== LUXURY CAMPING ========== -->
+  <section class="camping" id="camping">
+    <div class="container">
+      <div class="camping-grid">
+        <div class="camping-text reveal">
+          <span class="section-label">Stay With Us</span>
+          <h2>Luxury camping &amp; cabins</h2>
+          <div class="divider"></div>
+          <p>Wooden cabins, safari glamping tents, campfire areas and nature trails for a perfect escape. Additional services include bicycle hire, bonfire packages, breakfast packages and guided nature walks.</p>
+          <ul class="experience-list" style="margin-top: 1.5rem;">
+            <li>8–15 wooden cabins</li>
+            <li>Luxury safari tents (glamping)</li>
+            <li>Family camping sites</li>
+            <li>Campfire &amp; BBQ stations</li>
+            <li>Nature walking trails</li>
+            <li>Outdoor cinema nights</li>
+          </ul>
+          <div style="margin-top: 2.5rem;">
+            <a href="#contact" class="btn btn-dark">Enquire About Stays</a>
+          </div>
+        </div>
+        <div class="camping-images reveal">
+          <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1974&auto=format&fit=crop" alt="Luxury safari tent" loading="lazy">
+          </div>
+          <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?q=80&w=2070&auto=format&fit=crop" alt="Wooden cabin at Marura Gardens" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CLASSIC CARS & PETS (DUO) ========== -->
+  <section class="duo-section">
+    <div class="duo-grid">
+      <div class="duo-item">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" alt="Classic car event at Marura Gardens" loading="lazy">
+        <div class="duo-content">
+          <span class="section-label">Monthly Gatherings</span>
+          <h3>Classic Car &amp; Vintage Events</h3>
+          <p>A monthly event attracting collectors and enthusiasts — exhibitions, vintage Land Rover gatherings, classic Mercedes and BMW meets, and vintage motorcycle displays.</p>
+          <ul class="experience-list">
+            <li>Awards for Best Restored Vehicle</li>
+            <li>Live music &amp; food market</li>
+            <li>Photography sessions</li>
+            <li>Auto vendors &amp; sponsors</li>
           </ul>
         </div>
-        <div class="stream-card">
-          <div class="stream-icon"><i class="fas fa-briefcase"></i></div>
-          <h3>Corporate Packages</h3>
-          <p>Tailored retreats, team building and outdoor workshops designed to inspire and connect.</p>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> Leadership retreats</li>
-            <li><i class="fas fa-check-circle"></i> Executive meetings</li>
-            <li><i class="fas fa-check-circle"></i> Annual staff parties</li>
-            <li><i class="fas fa-check-circle"></i> Outdoor workshops</li>
+      </div>
+      <div class="duo-item">
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop" alt="Pet festival at Marura Gardens" loading="lazy">
+        <div class="duo-content">
+          <span class="section-label">Quarterly Festivals</span>
+          <h3>Pet Events &amp; Family Experiences</h3>
+          <p>Dog shows, cat competitions, pet fashion shows, veterinary clinics, adoption days, grooming competitions and agility courses — set within the gardens.</p>
+          <ul class="experience-list">
+            <li>Pet food &amp; accessory exhibitors</li>
+            <li>Veterinary clinics on site</li>
+            <li>Pet photography sessions</li>
+            <li>Agility courses &amp; adoption days</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- INTERACTIVE IMAGE GALLERY with text overlay -->
-  <section id="gallery">
+  <!-- ========== GALLERY (ASYMMETRICAL) ========== -->
+  <section class="gallery-section" id="gallery">
     <div class="container">
-      <div class="section-title">
+      <div class="section-title center reveal">
+        <span class="section-label">The Grounds</span>
         <h2>Wide open spaces, beautiful moments</h2>
         <p>Our gardens are designed to let every event breathe — no congestion, just nature.</p>
       </div>
-      <div class="image-showcase">
-        <div class="image-showcase-item">
-          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2069&auto=format&fit=crop" alt="Garden wedding setup">
-          <div class="image-label">
-            <h4>Garden weddings</h4>
-            <p>Landscaped lawns for unforgettable ceremonies</p>
-          </div>
+      <div class="gallery-editorial reveal">
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2070&auto=format&fit=crop" alt="Garden wedding ceremony" loading="lazy">
         </div>
-        <div class="image-showcase-item">
-          <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1974&auto=format&fit=crop" alt="Luxury camping tent">
-          <div class="image-label">
-            <h4>Luxury glamping</h4>
-            <p>Safari tents &amp; wooden cabins</p>
-          </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2069&auto=format&fit=crop" alt="Elegant garden reception setup" loading="lazy">
         </div>
-        <div class="image-showcase-item">
-          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" alt="Classic car">
-          <div class="image-label">
-            <h4>Classic car Sundays</h4>
-            <p>Monthly vintage &amp; collector meets</p>
-          </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1974&auto=format&fit=crop" alt="Luxury glamping tent" loading="lazy">
         </div>
-        <div class="image-showcase-item">
-          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop" alt="Dog show">
-          <div class="image-label">
-            <h4>Pet festivals</h4>
-            <p>Shows, adoption days &amp; clinics</p>
-          </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070&auto=format&fit=crop" alt="Classic car in garden setting" loading="lazy">
         </div>
-        <div class="image-showcase-item">
-          <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1976&auto=format&fit=crop" alt="Family park picnic">
-          <div class="image-label">
-            <h4>Weekend family park</h4>
-            <p>Playgrounds, archery &amp; farmers' market</p>
-          </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=2069&auto=format&fit=crop" alt="Dog show" loading="lazy">
         </div>
-        <div class="image-showcase-item">
-          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="Corporate retreat">
-          <div class="image-label">
-            <h4>Corporate retreats</h4>
-            <p>Leadership &amp; team building in nature</p>
-          </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=1976&auto=format&fit=crop" alt="Family picnic in the gardens" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=2069&auto=format&fit=crop" alt="Landscaped gardens at Marura" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2070&auto=format&fit=crop" alt="Corporate retreat in nature" loading="lazy">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BACKGROUND STRIP 1 (lively wide image) -->
-  <section class="bg-strip" style="background-image: url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=2070&auto=format&fit=crop');">
+  <!-- ========== EVENTS ========== -->
+  <section class="events-section" id="events">
     <div class="container">
-      <h2>Breathtaking surroundings</h2>
-      <p>Four acres of landscaped gardens, peaceful natural environment, perfect for photography and relaxation.</p>
+      <div class="events-editorial">
+        <div class="events-text reveal">
+          <span class="section-label">Signature Events</span>
+          <h2>Join us for recurring celebrations.</h2>
+          <div class="divider"></div>
+          <p>Throughout the year, Marura Gardens hosts a calendar of distinctive events that bring the community together.</p>
+          <div class="events-list">
+            <div class="event-item">
+              <span class="event-name">Classic Car Sunday</span>
+              <span class="event-timing">Monthly</span>
+            </div>
+            <div class="event-item">
+              <span class="event-name">Pet Festival</span>
+              <span class="event-timing">Quarterly</span>
+            </div>
+            <div class="event-item">
+              <span class="event-name">Garden Festival</span>
+              <span class="event-timing">Annual</span>
+            </div>
+            <div class="event-item">
+              <span class="event-name">Christmas Family Carnival</span>
+              <span class="event-timing">December</span>
+            </div>
+            <div class="event-item">
+              <span class="event-name">Easter Camping Weekend</span>
+              <span class="event-timing">Easter</span>
+            </div>
+            <div class="event-item">
+              <span class="event-name">Valentine's Garden Dinner</span>
+              <span class="event-timing">February</span>
+            </div>
+            <div class="event-item">
+              <span class="event-name">Corporate Open Days</span>
+              <span class="event-timing">Seasonal</span>
+            </div>
+            <div class="event-item">
+              <span class="event-name">School Holiday Camping</span>
+              <span class="event-timing">School Holidays</span>
+            </div>
+          </div>
+        </div>
+        <div class="events-image reveal">
+          <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=2070&auto=format&fit=crop" alt="Marura Gardens event setting" loading="lazy">
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- EVENTS / MARKETING -->
-  <section id="events" class="bg-soft">
+  <!-- ========== FACILITIES ========== -->
+  <section class="facilities" id="facilities">
     <div class="container">
-      <div class="section-title">
-        <h2>Signature events &amp; festivals</h2>
-        <p>Join us for recurring celebrations that bring the community together.</p>
-      </div>
-      <div class="event-tags">
-        <div class="event-tag"><i class="fas fa-calendar-alt"></i> Monthly Classic Car Sunday</div>
-        <div class="event-tag"><i class="fas fa-paw"></i> Quarterly Pet Festival</div>
-        <div class="event-tag"><i class="fas fa-seedling"></i> Annual Garden Festival</div>
-        <div class="event-tag"><i class="fas fa-snowflake"></i> Christmas Family Carnival</div>
-        <div class="event-tag"><i class="fas fa-egg"></i> Easter Camping Weekend</div>
-        <div class="event-tag"><i class="fas fa-heart"></i> Valentine’s Garden Dinner</div>
-        <div class="event-tag"><i class="fas fa-building"></i> Corporate Open Days</div>
-        <div class="event-tag"><i class="fas fa-umbrella-beach"></i> School Holiday Camping</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURES (interactive) -->
-  <section>
-    <div class="container">
-      <div class="section-title">
+      <div class="section-title reveal">
+        <span class="section-label">Amenities</span>
         <h2>Exceptional facilities &amp; services</h2>
         <p>Everything you need for a seamless visit — from online booking to customer support.</p>
       </div>
-      <div class="features-grid">
-        <div class="feature-item">
-          <i class="fas fa-calendar-check"></i>
+      <div class="facilities-grid reveal">
+        <div class="facility-item">
+          <i class="fas fa-calendar-check facility-icon"></i>
           <h4>Online Booking Calendar</h4>
+          <p>Check availability and reserve your dates with ease.</p>
         </div>
-        <div class="feature-item">
-          <i class="fas fa-ticket-alt"></i>
+        <div class="facility-item">
+          <i class="fas fa-ticket-alt facility-icon"></i>
           <h4>Event Ticket Sales</h4>
+          <p>Purchase tickets for our signature events and festivals.</p>
         </div>
-        <div class="feature-item">
-          <i class="fas fa-user-circle"></i>
+        <div class="facility-item">
+          <i class="fas fa-user-circle facility-icon"></i>
           <h4>Customer Login Portal</h4>
+          <p>Manage your bookings and preferences in one place.</p>
         </div>
-        <div class="feature-item">
-          <i class="fas fa-store"></i>
+        <div class="facility-item">
+          <i class="fas fa-store facility-icon"></i>
           <h4>Vendor Registration</h4>
+          <p>Register as a vendor for events and markets.</p>
         </div>
-        <div class="feature-item">
-          <i class="fas fa-clock"></i>
+        <div class="facility-item">
+          <i class="fas fa-clock facility-icon"></i>
           <h4>Event Countdowns</h4>
+          <p>Stay informed about upcoming events.</p>
         </div>
-        <div class="feature-item">
-          <i class="fas fa-envelope"></i>
+        <div class="facility-item">
+          <i class="fas fa-envelope facility-icon"></i>
           <h4>Newsletter Subscription</h4>
+          <p>Receive updates on events and seasonal offers.</p>
         </div>
-        <div class="feature-item">
-          <i class="fab fa-whatsapp"></i>
+        <div class="facility-item">
+          <i class="fab fa-whatsapp facility-icon"></i>
           <h4>Live Chat / WhatsApp</h4>
+          <p>Connect with us instantly for enquiries.</p>
         </div>
-        <div class="feature-item">
-          <i class="fas fa-search"></i>
+        <div class="facility-item">
+          <i class="fas fa-search facility-icon"></i>
           <h4>SEO Optimized</h4>
+          <p>Find us easily online.</p>
         </div>
-        <div class="feature-item">
-          <i class="fas fa-video"></i>
+        <div class="facility-item">
+          <i class="fas fa-video facility-icon"></i>
           <h4>Drone Video Gallery</h4>
+          <p>Experience Marura Gardens from above.</p>
         </div>
-        <div class="feature-item">
-          <i class="fas fa-camera"></i>
+        <div class="facility-item">
+          <i class="fas fa-camera facility-icon"></i>
           <h4>Photo Galleries</h4>
+          <p>Browse our collection of beautiful moments.</p>
         </div>
-        <div class="feature-item">
-          <i class="fas fa-star"></i>
+        <div class="facility-item">
+          <i class="fas fa-star facility-icon"></i>
           <h4>Google Reviews Integration</h4>
+          <p>See what our guests are saying.</p>
         </div>
-        <div class="feature-item">
-          <i class="fas fa-chart-line"></i>
+        <div class="facility-item">
+          <i class="fas fa-chart-line facility-icon"></i>
           <h4>Customer Dashboard</h4>
+          <p>Track your bookings and history.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BACKGROUND STRIP 2 (another lively wide image) -->
-  <section class="bg-strip" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop');">
-    <div class="container">
-      <h2>Ready to experience Marura Gardens?</h2>
-      <p>Whether it's a wedding, camping weekend, or classic car show — we have the space and the atmosphere.</p>
-      <div style="margin-top: 3rem;">
-        <a href="#contact" class="btn btn-light" style="background: white; color: #1a3d1a;">Get in touch</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER / CONTACT -->
+  <!-- ========== CONTACT / FOOTER ========== -->
   <footer class="footer" id="contact">
     <div class="container">
       <div class="footer-grid">
-        <div>
-          <h4>Marura Gardens</h4>
-          <p style="color: #b0ccb0; margin-bottom: 1.5rem;">North Rift's premier outdoor lifestyle and events destination.</p>
-          <p><i class="fas fa-map-marker-alt"></i> North Rift, Kenya</p>
-          <p><i class="fas fa-phone-alt"></i> +254 700 000 000</p>
-          <p><i class="fas fa-envelope"></i> hello@maruragardens.co.ke</p>
+        <div class="footer-brand">
+          <h3>Marura Gardens</h3>
+          <p>North Rift's premier outdoor lifestyle and events destination. Four acres of landscaped gardens, premium events, glamping and unforgettable outdoor moments.</p>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>North Rift, Kenya</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>+254 700 000 000</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>hello@maruragardens.co.ke</span>
+          </div>
         </div>
         <div>
-          <h4>Quick Links</h4>
-          <a href="#experiences">Experiences</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#events">Events</a>
-          <a href="#contact">Contact</a>
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="#experiences">Experiences</a>
+            <a href="#weddings">Weddings</a>
+            <a href="#camping">Camping</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#events">Events</a>
+            <a href="#facilities">Facilities</a>
+          </div>
         </div>
         <div>
           <h4>Plan Your Event</h4>
-          <a href="#"><i class="fas fa-calendar-check"></i> Book a Venue</a>
-          <a href="#"><i class="fas fa-campground"></i> Cabin Reservation</a>
-          <a href="#"><i class="fas fa-car"></i> Car Show Registration</a>
-          <a href="#"><i class="fas fa-paw"></i> Pet Festival Sign-up</a>
+          <div class="footer-links">
+            <a href="#contact">Book a Venue</a>
+            <a href="#contact">Cabin Reservation</a>
+            <a href="#contact">Car Show Registration</a>
+            <a href="#contact">Pet Festival Sign-up</a>
+          </div>
         </div>
         <div>
           <h4>Connect</h4>
-          <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-          <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
-          <a href="#"><i class="fab fa-tripadvisor"></i> TripAdvisor</a>
+          <div class="footer-links">
+            <a href="#"><i class="fab fa-whatsapp" style="margin-right: 0.6rem; color: var(--gold);"></i>WhatsApp</a>
+            <a href="#"><i class="fab fa-instagram" style="margin-right: 0.6rem; color: var(--gold);"></i>Instagram</a>
+            <a href="#"><i class="fab fa-facebook" style="margin-right: 0.6rem; color: var(--gold);"></i>Facebook</a>
+            <a href="#"><i class="fab fa-tripadvisor" style="margin-right: 0.6rem; color: var(--gold);"></i>TripAdvisor</a>
+          </div>
         </div>
       </div>
-      <div class="copyright">
-        &copy; 2025 Marura Gardens. All rights reserved. 
+      <div class="footer-bottom">
+        <span>&copy; 2025 Marura Gardens. All rights reserved.</span>
+        <span>Designed with care for the extraordinary.</span>
       </div>
     </div>
   </footer>
 
+  <!-- ========== JAVASCRIPT ========== -->
   <script>
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    if (menuToggle) {
-      menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-      });
-    }
+    (function() {
+      'use strict';
 
-    // Optional: close mobile menu when a link is clicked
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-      });
-    });
+      // ---------- NAVBAR SCROLL EFFECT ----------
+      const navbar = document.getElementById('navbar');
+      let lastScroll = 0;
 
-    // Smooth scroll for anchor links (native CSS scroll-behavior handles most, but we keep for older browsers)
-    // Also a tiny effect for hero (no extra JS needed)
+      function handleScroll() {
+        const scrollY = window.scrollY;
+        if (scrollY > 80) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+        lastScroll = scrollY;
+      }
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll(); // initial state
+
+      // ---------- MOBILE MENU ----------
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      const toggleIcon = menuToggle.querySelector('i');
+
+      function toggleMenu(forceClose) {
+        if (forceClose) {
+          navLinks.classList.remove('active');
+          menuToggle.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          if (toggleIcon) toggleIcon.className = 'fas fa-bars';
+          document.body.style.overflow = '';
+          return;
+        }
+        const isActive = navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', isActive);
+        if (toggleIcon) {
+          toggleIcon.className = isActive ? 'fas fa-times' : 'fas fa-bars';
+        }
+        document.body.style.overflow = isActive ? 'hidden' : '';
+      }
+
+      menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      // Close menu on link click (mobile)
+      navLinks.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (navLinks.classList.contains('active')) {
+            toggleMenu(true);
+          }
+        });
+      });
+
+      // Close menu on outside click (mobile)
+      document.addEventListener('click', function(e) {
+        if (navLinks.classList.contains('active') &&
+            !navLinks.contains(e.target) &&
+            !menuToggle.contains(e.target)) {
+          toggleMenu(true);
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+          toggleMenu(true);
+        }
+      });
+
+      // ---------- SCROLL REVEAL ANIMATIONS ----------
+      const revealElements = document.querySelectorAll('.reveal');
+
+      if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -60px 0px'
+        });
+
+        revealElements.forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        // Fallback: show all
+        revealElements.forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+
+      // ---------- HERO IMAGE SCALE ON LOAD ----------
+      window.addEventListener('load', function() {
+        const hero = document.querySelector('.hero');
+        if (hero) hero.classList.add('loaded');
+      });
+
+      // ---------- SMOOTH SCROLL FOR ANCHOR LINKS (native CSS handles most) ----------
+      // Ensure hash links close mobile menu and scroll properly
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+          const target = document.querySelector(href);
+          if (target) {
+            // Let native smooth scroll handle (CSS scroll-behavior)
+            // But close mobile menu
+            if (navLinks.classList.contains('active')) {
+              toggleMenu(true);
+            }
+          }
+        });
+      });
+
+      // ---------- LAZY BACKGROUND IMAGES (for image-break sections) ----------
+      // The image-break uses background-image already in HTML.
+      // For better performance we could lazy-load, but they're decorative
+      // and only two sections — acceptable.
+
+      // ---------- PREVENT HORIZONTAL SCROLL ON MOBILE (safety) ----------
+      // Ensure no element exceeds viewport width
+      function checkOverflow() {
+        if (document.body.scrollWidth > document.body.clientWidth) {
+          // If overflow exists, force it hidden
+          document.body.style.overflowX = 'hidden';
+        }
+      }
+      window.addEventListener('resize', checkOverflow);
+      checkOverflow();
+
+    })();
   </script>
 </body>
 </html>
