@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marura Gardens | Events &amp; Nature</title>
+    <title>Marura Gardens · Lively Events &amp; Nature</title>
     <!-- Font Awesome (icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts for a clean, modern look -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
-        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
@@ -22,46 +21,60 @@
             color: #1e2b1e;
             line-height: 1.6;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        /* Green & white theme */
         :root {
-            --green-deep: #1d4b1d;
+            --green-deep: #1a3d1a;
             --green-mid: #2e7d32;
+            --green-bright: #4caf50;
             --green-soft: #e8f5e9;
             --green-light: #c8e6c9;
             --white: #ffffff;
             --shadow-sm: 0 8px 20px rgba(0, 40, 0, 0.08);
-            --shadow-md: 0 12px 28px rgba(0, 30, 0, 0.12);
+            --shadow-md: 0 16px 40px rgba(0, 30, 0, 0.16);
+            --shadow-lg: 0 24px 60px rgba(0, 20, 0, 0.25);
         }
 
         h1, h2, h3 {
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1.2;
         }
 
         h2 {
-            font-size: 2.4rem;
+            font-size: 2.8rem;
             color: var(--green-deep);
             margin-bottom: 0.5rem;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
         }
 
         .section-title h2 {
-            font-size: 2.4rem;
+            font-size: 2.8rem;
             color: var(--green-deep);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--green-bright);
+            margin: 0.6rem auto 0;
+            border-radius: 4px;
         }
 
         .section-title p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: #3a5a3a;
             max-width: 700px;
-            margin: 0.75rem auto 0;
+            margin: 1rem auto 0;
         }
 
         .container {
@@ -71,180 +84,39 @@
             padding: 0 1rem;
         }
 
-        /* ---- Buttons (no payment, just actions) ---- */
+        /* ---- Buttons ---- */
         .btn {
             display: inline-block;
             background-color: var(--green-mid);
             color: white;
             font-weight: 600;
-            padding: 0.9rem 2.2rem;
-            border-radius: 40px;
+            padding: 1rem 2.6rem;
+            border-radius: 60px;
             text-decoration: none;
-            transition: all 0.25s ease;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
             border: 2px solid transparent;
-            font-size: 1rem;
+            font-size: 1.05rem;
             letter-spacing: 0.3px;
-            box-shadow: 0 6px 14px rgba(46, 125, 50, 0.25);
+            box-shadow: 0 10px 24px rgba(46, 125, 50, 0.3);
         }
 
         .btn:hover {
             background-color: var(--green-deep);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 22px rgba(29, 75, 29, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--green-deep);
-            border: 2px solid var(--green-mid);
-            box-shadow: none;
-        }
-
-        .btn-outline:hover {
-            background: var(--green-soft);
-            border-color: var(--green-deep);
-            color: var(--green-deep);
-            box-shadow: none;
-        }
-
-        /* ---- Header / Nav ---- */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(8px);
-            box-shadow: 0 4px 18px rgba(0, 40, 0, 0.06);
-            z-index: 1000;
-            padding: 0.8rem 0;
-            transition: all 0.2s;
-        }
-
-        .navbar .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--green-deep);
-            letter-spacing: -0.5px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .logo i {
-            color: var(--green-mid);
-            font-size: 1.9rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.2rem;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #1e2b1e;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--green-mid);
-        }
-
-        .nav-cta {
-            background-color: var(--green-mid);
-            color: white !important;
-            padding: 0.55rem 1.6rem;
-            border-radius: 40px;
-            font-weight: 600;
-        }
-
-        .nav-cta:hover {
-            background-color: var(--green-deep);
-            color: white !important;
-        }
-
-        /* Mobile menu (simple) */
-        .menu-toggle {
-            display: none;
-            font-size: 1.8rem;
-            color: var(--green-deep);
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* ---- Hero section with wide visible background ---- */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            background: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-            margin-top: 0;
-            isolation: isolate;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(105deg, rgba(0, 30, 0, 0.55) 0%, rgba(0, 20, 0, 0.25) 100%);
-            z-index: -1;
-        }
-
-        .hero-content {
-            color: white;
-            max-width: 950px;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        .hero-content h1 {
-            font-size: 4.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .hero-content p {
-            font-size: 1.4rem;
-            font-weight: 300;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.2rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 18px 32px rgba(29, 75, 29, 0.4);
         }
 
         .btn-light {
             background-color: white;
             color: var(--green-deep);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
         }
 
         .btn-light:hover {
             background-color: #f0f7f0;
             color: var(--green-deep);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 36px rgba(0, 0, 0, 0.3);
         }
 
         .btn-transparent {
@@ -257,11 +129,146 @@
         .btn-transparent:hover {
             background: rgba(255, 255, 255, 0.15);
             border-color: white;
+            transform: translateY(-4px);
+        }
+
+        /* ---- Header / Nav ---- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 24px rgba(0, 40, 0, 0.08);
+            z-index: 1000;
+            padding: 0.9rem 0;
+            transition: all 0.2s;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.9rem;
+            font-weight: 800;
+            color: var(--green-deep);
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i {
+            color: var(--green-mid);
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.4rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1e2b1e;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green-mid);
+        }
+
+        .nav-cta {
+            background-color: var(--green-mid);
+            color: white !important;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--green-deep);
+            color: white !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.9rem;
+            color: var(--green-deep);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* ---- HERO (lively, wide background image) ---- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat fixed;
+            isolation: isolate;
+            margin-top: 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, rgba(0, 30, 0, 0.7) 0%, rgba(0, 20, 0, 0.3) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            color: white;
+            max-width: 1100px;
+            padding: 2rem;
+            margin-top: 5rem;
+            animation: fadeInUp 0.9s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 5.2rem;
+            font-weight: 800;
+            line-height: 1.05;
+            text-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero-content p {
+            font-size: 1.6rem;
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* ---- Section spacing ---- */
         section {
-            padding: 5rem 0;
+            padding: 6rem 0;
         }
 
         .bg-soft {
@@ -271,91 +278,108 @@
         /* ---- Cards / Streams ---- */
         .streams-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.2rem;
             margin-top: 2rem;
         }
 
         .stream-card {
             background: white;
-            border-radius: 28px;
-            padding: 2rem 1.8rem;
+            border-radius: 32px;
+            padding: 2.2rem 2rem;
             box-shadow: var(--shadow-sm);
-            transition: transform 0.25s, box-shadow 0.25s;
+            transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid rgba(46, 125, 50, 0.1);
             display: flex;
             flex-direction: column;
             height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stream-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--green-bright), var(--green-mid));
         }
 
         .stream-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
             border-color: var(--green-light);
         }
 
         .stream-icon {
-            font-size: 2.4rem;
+            font-size: 2.6rem;
             color: var(--green-mid);
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.4rem;
             background: var(--green-soft);
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 18px;
+            border-radius: 22px;
+            transition: background 0.3s;
+        }
+
+        .stream-card:hover .stream-icon {
+            background: var(--green-light);
         }
 
         .stream-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.8rem;
+            margin-bottom: 0.9rem;
             color: var(--green-deep);
         }
 
         .stream-card p {
             color: #2c3e2c;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             flex: 1;
+            font-size: 1.05rem;
         }
 
         .stream-card ul {
             list-style: none;
-            margin: 1rem 0 0.5rem;
+            margin: 0.5rem 0 0.5rem;
         }
 
         .stream-card li {
-            padding: 0.25rem 0;
+            padding: 0.35rem 0;
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.95rem;
+            gap: 10px;
+            font-size: 0.98rem;
             color: #2c3e2c;
         }
 
         .stream-card li i {
-            color: var(--green-mid);
-            font-size: 0.8rem;
+            color: var(--green-bright);
+            font-size: 0.9rem;
             width: 18px;
         }
 
-        /* ---- Gallery / image strips (wide visible) ---- */
+        /* ---- Wide image showcase (Lively grid) ---- */
         .image-showcase {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
             margin-top: 3rem;
-            justify-content: center;
         }
 
         .image-showcase-item {
-            flex: 1 1 220px;
-            max-width: 320px;
-            aspect-ratio: 4 / 3;
-            border-radius: 24px;
+            border-radius: 28px;
             overflow: hidden;
             box-shadow: var(--shadow-sm);
-            transition: transform 0.3s;
+            transition: transform 0.35s, box-shadow 0.35s;
+            aspect-ratio: 4 / 3;
+            position: relative;
+            background: #e0eee0;
         }
 
         .image-showcase-item img {
@@ -363,47 +387,58 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s;
+            transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1);
+        }
+
+        .image-showcase-item:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: var(--shadow-md);
         }
 
         .image-showcase-item:hover img {
-            transform: scale(1.03);
+            transform: scale(1.06);
         }
 
-        /* ---- Features / additional ---- */
+        /* ---- Feature icons ---- */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.8rem;
             margin-top: 2rem;
         }
 
         .feature-item {
             background: white;
-            padding: 1.8rem 1.5rem;
-            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            border-radius: 24px;
             text-align: center;
             box-shadow: var(--shadow-sm);
             border: 1px solid #e2f0e2;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
         }
 
         .feature-item i {
-            font-size: 2rem;
+            font-size: 2.4rem;
             color: var(--green-mid);
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .feature-item h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            font-weight: 700;
             color: var(--green-deep);
         }
 
-        /* ---- Events / marketing strip ---- */
+        /* ---- Event tags ---- */
         .event-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.2rem;
             justify-content: center;
             margin-top: 2.5rem;
         }
@@ -411,83 +446,132 @@
         .event-tag {
             background: white;
             border-radius: 60px;
-            padding: 0.8rem 1.8rem;
-            font-weight: 600;
+            padding: 1rem 2.2rem;
+            font-weight: 700;
             color: var(--green-deep);
             box-shadow: var(--shadow-sm);
             border: 1px solid var(--green-light);
-            font-size: 0.95rem;
+            font-size: 1rem;
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.2s;
+            gap: 10px;
+            transition: all 0.3s;
         }
 
         .event-tag i {
             color: var(--green-mid);
+            font-size: 1.1rem;
         }
 
         .event-tag:hover {
             background: var(--green-mid);
             color: white;
             border-color: var(--green-mid);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
         }
 
         .event-tag:hover i {
             color: white;
         }
 
+        /* ---- Lively background strips (interactive) ---- */
+        .bg-strip {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 6rem 0;
+            isolation: isolate;
+        }
+
+        .bg-strip::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 25, 0, 0.45);
+            z-index: -1;
+        }
+
+        .bg-strip .container {
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+
+        .bg-strip h2 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .bg-strip p {
+            font-size: 1.35rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
         /* ---- Footer ---- */
         .footer {
-            background-color: #0f1f0f;
+            background-color: #0b1f0b;
             color: #d9e6d9;
-            padding: 3rem 0 2rem;
+            padding: 4rem 0 2.5rem;
             margin-top: 2rem;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2.5rem;
         }
 
         .footer h4 {
             color: white;
-            margin-bottom: 1.2rem;
-            font-weight: 600;
+            margin-bottom: 1.4rem;
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
         .footer a {
-            color: #c0d6c0;
+            color: #b8d0b8;
             text-decoration: none;
             display: block;
-            margin-bottom: 0.7rem;
-            transition: color 0.2s;
+            margin-bottom: 0.8rem;
+            transition: color 0.2s, transform 0.2s;
         }
 
         .footer a:hover {
             color: white;
+            transform: translateX(4px);
         }
 
         .footer i {
-            margin-right: 8px;
-            width: 18px;
+            margin-right: 10px;
+            width: 20px;
             color: var(--green-light);
         }
 
         .copyright {
             border-top: 1px solid #2c3e2c;
-            margin-top: 2.5rem;
-            padding-top: 1.8rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #9bb59b;
         }
 
         /* ---- Responsive ---- */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 4.2rem;
+            }
+        }
+
         @media (max-width: 900px) {
             .hero-content h1 {
-                font-size: 3.2rem;
+                font-size: 3.4rem;
             }
             .nav-links {
                 display: none;
@@ -507,27 +591,33 @@
                 width: 100%;
                 background: white;
                 padding: 2rem;
-                box-shadow: var(--shadow-md);
+                box-shadow: var(--shadow-lg);
                 gap: 1.5rem;
-                border-radius: 0 0 24px 24px;
+                border-radius: 0 0 28px 28px;
             }
         }
 
         @media (max-width: 600px) {
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             .hero-content p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             section {
-                padding: 3rem 0;
+                padding: 4rem 0;
             }
             h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             .btn {
-                padding: 0.8rem 1.8rem;
+                padding: 0.9rem 2rem;
+            }
+            .bg-strip h2 {
+                font-size: 2.2rem;
+            }
+            .bg-strip p {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -551,7 +641,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section with wide visible background -->
+    <!-- Hero with lively wide background image -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Where nature meets celebration</h1>
@@ -566,12 +656,12 @@
     <!-- Vision / Intro -->
     <section style="padding: 4rem 0 2rem;">
         <div class="container" style="text-align: center; max-width: 900px;">
-            <h2 style="font-size: 2.2rem;">A destination for every season</h2>
-            <p style="font-size: 1.2rem; color: #3a5a3a; margin-top: 1rem;">Marura Gardens is more than a wedding venue — it's a year-round lifestyle and events destination. From classic car Sundays to family camping weekends, we blend natural beauty with curated experiences.</p>
+            <h2 style="font-size: 2.4rem; color: var(--green-deep);">A destination for every season</h2>
+            <p style="font-size: 1.3rem; color: #3a5a3a; margin-top: 1rem;">Marura Gardens is more than a wedding venue — it's a year-round lifestyle and events destination. From classic car Sundays to family camping weekends, we blend natural beauty with curated experiences.</p>
         </div>
     </section>
 
-    <!-- Recommended New Revenue Streams (Experiences) -->
+    <!-- Recommended Experiences -->
     <section id="experiences" class="bg-soft">
         <div class="container">
             <div class="section-title">
@@ -579,7 +669,6 @@
                 <p>Discover our expanded offerings designed to bring people together throughout the year.</p>
             </div>
             <div class="streams-grid">
-                <!-- Premium Events -->
                 <div class="stream-card">
                     <div class="stream-icon"><i class="fas fa-glass-cheers"></i></div>
                     <h3>Premium Events Venue</h3>
@@ -591,7 +680,6 @@
                         <li><i class="fas fa-check-circle"></i> Graduations &amp; birthdays</li>
                     </ul>
                 </div>
-                <!-- Luxury Camping & Cabins -->
                 <div class="stream-card">
                     <div class="stream-icon"><i class="fas fa-campground"></i></div>
                     <h3>Luxury Camping &amp; Cabins</h3>
@@ -603,7 +691,6 @@
                         <li><i class="fas fa-check-circle"></i> Guided nature walks</li>
                     </ul>
                 </div>
-                <!-- Classic Car Events -->
                 <div class="stream-card">
                     <div class="stream-icon"><i class="fas fa-car-side"></i></div>
                     <h3>Classic Car &amp; Vintage Events</h3>
@@ -615,7 +702,6 @@
                         <li><i class="fas fa-check-circle"></i> Auto vendors &amp; photography</li>
                     </ul>
                 </div>
-                <!-- Pet Events -->
                 <div class="stream-card">
                     <div class="stream-icon"><i class="fas fa-dog"></i></div>
                     <h3>Pet Events</h3>
@@ -627,7 +713,6 @@
                         <li><i class="fas fa-check-circle"></i> Adoption &amp; agility courses</li>
                     </ul>
                 </div>
-                <!-- Weekend Family Park -->
                 <div class="stream-card">
                     <div class="stream-icon"><i class="fas fa-tree"></i></div>
                     <h3>Weekend Family Park</h3>
@@ -639,7 +724,6 @@
                         <li><i class="fas fa-check-circle"></i> Farmers' market</li>
                     </ul>
                 </div>
-                <!-- Corporate Packages -->
                 <div class="stream-card">
                     <div class="stream-icon"><i class="fas fa-briefcase"></i></div>
                     <h3>Corporate Packages</h3>
@@ -655,7 +739,7 @@
         </div>
     </section>
 
-    <!-- Image Showcase (wide visible imagery) -->
+    <!-- Lively wide image showcase -->
     <section id="gallery">
         <div class="container">
             <div class="section-title">
@@ -685,7 +769,15 @@
         </div>
     </section>
 
-    <!-- Marketing / Events strip -->
+    <!-- Lively background strip (image with overlay) -->
+    <section class="bg-strip" style="background-image: url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=2070&auto=format&fit=crop');">
+        <div class="container">
+            <h2>Breathtaking surroundings</h2>
+            <p>Four acres of landscaped gardens, peaceful natural environment, perfect for photography and relaxation.</p>
+        </div>
+    </section>
+
+    <!-- Signature events / marketing -->
     <section id="events" class="bg-soft">
         <div class="container">
             <div class="section-title">
@@ -705,7 +797,7 @@
         </div>
     </section>
 
-    <!-- Additional Features (no payment) -->
+    <!-- Features (no payment) -->
     <section>
         <div class="container">
             <div class="section-title">
@@ -765,12 +857,14 @@
         </div>
     </section>
 
-    <!-- Call to action -->
-    <section style="background: var(--green-deep); color: white; padding: 3.5rem 0;">
-        <div class="container" style="text-align: center;">
-            <h2 style="color: white; font-size: 2.2rem; margin-bottom: 1rem;">Ready to experience Marura Gardens?</h2>
-            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; color: #d0e4d0;">Whether it's a wedding, camping weekend, or classic car show — we have the space and the atmosphere.</p>
-            <a href="#contact" class="btn btn-light" style="background: white; color: #1d4b1d;">Get in touch</a>
+    <!-- Second lively background strip (another image) -->
+    <section class="bg-strip" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop');">
+        <div class="container">
+            <h2>Ready to experience Marura Gardens?</h2>
+            <p>Whether it's a wedding, camping weekend, or classic car show — we have the space and the atmosphere.</p>
+            <div style="margin-top: 2.5rem;">
+                <a href="#contact" class="btn btn-light" style="background: white; color: #1a3d1a;">Get in touch</a>
+            </div>
         </div>
     </section>
 
@@ -813,7 +907,6 @@
         </div>
     </footer>
 
-    <!-- Simple mobile menu toggle script -->
     <script>
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
