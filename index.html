@@ -284,6 +284,7 @@
       overflow: hidden;
     }
 
+    /* No opacity transition — image swaps cleanly */
     .hero-bg {
       position: absolute;
       inset: 0;
@@ -292,8 +293,6 @@
       background-repeat: no-repeat;
       background-image: url('https://i.pinimg.com/736x/01/4d/46/014d4665e227c019c85cfc28de37ca8d.jpg');
       z-index: -2;
-      opacity: 1;
-      transition: opacity 1s ease-in-out;
     }
 
     .hero::after {
@@ -415,7 +414,7 @@
       pointer-events: none;
     }
 
-    /* ---------- EXPERIENCES (UNIFORM SPLIT ROWS) ---------- */
+    /* ---------- EXPERIENCES ---------- */
     .experiences { background: var(--ivory-soft); }
 
     .experience-row {
@@ -428,7 +427,6 @@
 
     .experience-row:last-child { margin-bottom: 0; }
 
-    /* Reverse via order, not direction */
     .experience-row.reverse .experience-image { order: 2; }
     .experience-row.reverse .experience-content { order: 1; }
 
@@ -483,7 +481,6 @@
       margin-top: 0.55em;
     }
 
-    /* Two-up grid: equal tiles, no gaps */
     .experience-grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -639,14 +636,18 @@
     .camping-text h2 { margin-bottom: 1.4rem; }
     .camping-text p { margin-bottom: 1.8rem; color: #555; }
 
+    /* FIX: equal, aligned 2-up grid — no staggered margins */
     .camping-images {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.2rem;
+      align-items: stretch;
     }
 
-    .camping-images .media:nth-child(1) { margin-top: 2.2rem; }
-    .camping-images .media:nth-child(2) { margin-bottom: 2.2rem; }
+    .camping-images .media {
+      margin: 0;
+      aspect-ratio: var(--img-ratio);
+    }
 
     /* ---------- DUO ---------- */
     .duo-section { background: var(--ivory-soft); }
@@ -986,8 +987,6 @@
 
       .weddings-list { grid-template-columns: 1fr; }
       .camping-images { grid-template-columns: 1fr; }
-      .camping-images .media:nth-child(1),
-      .camping-images .media:nth-child(2) { margin: 0; }
 
       .gallery-editorial { grid-template-columns: 1fr; grid-auto-rows: 240px; }
       .gallery-item:nth-child(1),
@@ -1465,6 +1464,7 @@
         if (hero) hero.classList.add('loaded');
       });
 
+      // ---------- HERO SLIDESHOW (clean swap, no white fade) ----------
       (function heroSlideshow() {
         const heroBg = document.querySelector('.hero-bg');
         if (!heroBg) return;
@@ -1485,12 +1485,9 @@
 
         setInterval(function() {
           index = (index + 1) % images.length;
-          heroBg.style.opacity = '0';
-          setTimeout(function() {
-            heroBg.style.backgroundImage = 'url("' + images[index] + '")';
-            heroBg.style.opacity = '1';
-          }, 700);
-        }, 3000);
+          // Direct swap — no opacity change, no white flash
+          heroBg.style.backgroundImage = 'url("' + images[index] + '")';
+        }, 5000);
       })();
 
       document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
