@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Marura Gardens · Luxury Events &amp; Nature</title>
-  <!-- Font Awesome 6 (free) for minimal icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Google Fonts: Cormorant Garamond (serif) + Inter (sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
@@ -80,28 +78,28 @@
     }
 
     h1 {
-      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-size: clamp(3rem, 7vw, 6rem);
       font-weight: 400;
       letter-spacing: -0.02em;
     }
 
     h2 {
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-size: clamp(2.2rem, 4.4vw, 3.6rem);
       font-weight: 400;
     }
 
     h3 {
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-size: clamp(1.6rem, 2.6vw, 2.3rem);
       font-weight: 500;
     }
 
     h4 {
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-size: clamp(1.2rem, 1.8vw, 1.5rem);
       font-weight: 600;
     }
 
     p {
-      font-size: clamp(1rem, 1.2vw, 1.15rem);
+      font-size: clamp(1rem, 1.1vw, 1.15rem);
       color: #3a3a3a;
       font-weight: 300;
       line-height: 1.8;
@@ -138,13 +136,13 @@
     }
 
     section {
-      padding: clamp(5rem, 10vw, 9rem) 0;
+      padding: clamp(5rem, 9vw, 8.5rem) 0;
       position: relative;
     }
 
     .section-title {
-      max-width: 700px;
-      margin-bottom: clamp(3rem, 6vw, 5rem);
+      max-width: 720px;
+      margin-bottom: clamp(3rem, 5vw, 4.5rem);
     }
 
     .section-title.center {
@@ -158,7 +156,7 @@
     }
 
     .section-title p {
-      font-size: clamp(1rem, 1.3vw, 1.2rem);
+      font-size: clamp(1rem, 1.2vw, 1.18rem);
       color: #555;
       max-width: 600px;
     }
@@ -168,7 +166,6 @@
       margin-right: auto;
     }
 
-    /* Thin divider */
     .divider {
       width: 60px;
       height: 1px;
@@ -304,7 +301,6 @@
       border-color: var(--forest);
     }
 
-    /* Mobile toggle */
     .menu-toggle {
       display: none;
       background: none;
@@ -323,24 +319,25 @@
     /* ---------- HERO ---------- */
     .hero {
       min-height: 100vh;
+      min-height: 100svh;
       display: flex;
       align-items: flex-end;
       position: relative;
       isolation: isolate;
       padding-bottom: clamp(5rem, 10vh, 9rem);
+      overflow: hidden;
     }
 
     .hero-bg {
       position: absolute;
-      inset: 0;
+      inset: -2%;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
       background-image: url('https://i.pinimg.com/736x/01/4d/46/014d4665e227c019c85cfc28de37ca8d.jpg');
       z-index: -2;
-      transform: scale(1.02);
-      opacity: 1;
-      transition: transform 8s ease-out, opacity 0.8s ease-in-out;
+      transform: scale(1.06);
+      transition: transform 5s ease-out, opacity 0.1s ease-in-out;
     }
 
     .hero.loaded .hero-bg {
@@ -353,10 +350,10 @@
       inset: 0;
       background: linear-gradient(
         to top,
-        rgba(15, 35, 26, 0.75) 0%,
-        rgba(15, 35, 26, 0.35) 40%,
+        rgba(15, 35, 26, 0.82) 0%,
+        rgba(15, 35, 26, 0.45) 38%,
         rgba(15, 35, 26, 0.15) 70%,
-        rgba(15, 35, 26, 0.3) 100%
+        rgba(15, 35, 26, 0.35) 100%
       );
       z-index: -1;
     }
@@ -375,13 +372,13 @@
     .hero-content h1 {
       color: var(--white);
       margin-bottom: 1.8rem;
-      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
       max-width: 900px;
     }
 
     .hero-content p {
-      font-size: clamp(1rem, 1.4vw, 1.25rem);
-      color: rgba(255, 255, 255, 0.85);
+      font-size: clamp(1rem, 1.3vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.88);
       max-width: 560px;
       margin-bottom: 2.5rem;
       font-weight: 300;
@@ -456,7 +453,7 @@
     .intro-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: clamp(3rem, 8vw, 7rem);
+      gap: clamp(3rem, 6vw, 6rem);
       align-items: center;
     }
 
@@ -471,8 +468,9 @@
 
     .intro-image {
       position: relative;
-      aspect-ratio: 3/4;
+      aspect-ratio: 4 / 5;
       overflow: hidden;
+      background: var(--beige);
     }
 
     .intro-image img {
@@ -490,7 +488,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      border: 1px solid rgba(185, 168, 139, 0.3);
+      border: 1px solid rgba(185, 168, 139, 0.35);
       margin: 1.5rem;
       pointer-events: none;
     }
@@ -505,7 +503,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 0;
       align-items: stretch;
-      min-height: 480px;
+      min-height: 520px;
     }
 
     .experience-row.reverse {
@@ -519,7 +517,8 @@
     .experience-image {
       position: relative;
       overflow: hidden;
-      min-height: 400px;
+      min-height: 520px;
+      background: var(--beige);
     }
 
     .experience-image img {
@@ -530,14 +529,14 @@
     }
 
     .experience-image:hover img {
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
 
     .experience-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: clamp(2rem, 5vw, 5rem);
+      padding: clamp(2.5rem, 5vw, 5rem);
       background: var(--white);
     }
 
@@ -579,27 +578,87 @@
       margin-top: 0.55em;
     }
 
-    /* Experience grid for smaller items */
-    .experience-grid-3 {
+    /* Two-up experience grid (was 3-col with a gap) */
+    .experience-grid-2 {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
       gap: 0;
-      margin-top: 0;
     }
 
-    .experience-grid-3 .experience-image {
-      min-height: 320px;
+    .experience-grid-2 .experience-row {
+      min-height: 480px;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      position: relative;
     }
 
-    .experience-grid-3 .experience-content {
+    .experience-grid-2 .experience-image {
+      min-height: 480px;
+    }
+
+    .experience-grid-2 .experience-content {
       padding: 2.5rem;
     }
 
-    .experience-grid-3 .experience-content h3 {
-      font-size: 1.5rem;
+    .experience-grid-2 .experience-content h3 {
+      font-size: 1.6rem;
     }
 
-    /* ---------- WEDDING SECTION ---------- */
+    /* Overlay-style tile for the second item (image only, label on it) */
+    .experience-tile {
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
+      background: var(--beige);
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .experience-tile img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.4s ease;
+    }
+
+    .experience-tile:hover img {
+      transform: scale(1.04);
+    }
+
+    .experience-tile::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 35, 26, 0.78) 0%, rgba(15, 35, 26, 0.1) 55%, transparent 100%);
+      z-index: 1;
+    }
+
+    .experience-tile-content {
+      position: relative;
+      z-index: 2;
+      padding: 2.5rem;
+      color: var(--white);
+    }
+
+    .experience-tile-content .section-label {
+      color: var(--gold-soft);
+    }
+
+    .experience-tile-content h3 {
+      color: var(--white);
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .experience-tile-content p {
+      color: rgba(255, 255, 255, 0.85);
+      margin: 0;
+      max-width: 90%;
+    }
+
+    /* ---------- WEDDINGS ---------- */
     .weddings {
       background: var(--forest);
       color: var(--white);
@@ -611,12 +670,13 @@
     .weddings-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 650px;
+      min-height: 700px;
     }
 
     .weddings-image {
       position: relative;
       overflow: hidden;
+      background: var(--forest-deep);
     }
 
     .weddings-image img {
@@ -647,7 +707,7 @@
     }
 
     .weddings-content p {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.82);
       margin-bottom: 2rem;
       max-width: 480px;
     }
@@ -664,7 +724,7 @@
     }
 
     .weddings-list li {
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.78);
       font-size: 0.95rem;
       display: flex;
       align-items: baseline;
@@ -682,9 +742,9 @@
       margin-top: 0.55em;
     }
 
-    /* ---------- FULL-WIDTH IMAGE BREAK ---------- */
+    /* ---------- IMAGE BREAK ---------- */
     .image-break {
-      height: clamp(350px, 55vh, 600px);
+      height: clamp(400px, 60vh, 620px);
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -699,14 +759,14 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(15, 35, 26, 0.45);
+      background: linear-gradient(to top, rgba(15, 35, 26, 0.55), rgba(15, 35, 26, 0.35));
     }
 
     .image-break-content {
       position: relative;
       z-index: 1;
       color: var(--white);
-      max-width: 700px;
+      max-width: 720px;
       padding: 2rem;
     }
 
@@ -716,8 +776,8 @@
     }
 
     .image-break-content p {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: clamp(1rem, 1.2vw, 1.15rem);
     }
 
     /* ---------- CAMPING ---------- */
@@ -749,7 +809,8 @@
 
     .camping-images .img-wrap {
       overflow: hidden;
-      aspect-ratio: 3/4;
+      aspect-ratio: 3 / 4;
+      background: var(--beige);
     }
 
     .camping-images .img-wrap:first-child {
@@ -771,7 +832,7 @@
       transform: scale(1.05);
     }
 
-    /* ---------- CLASSIC CARS + FAMILY MEETINGS / ENGAGEMENTS / KOITOS ---------- */
+    /* ---------- DUO ---------- */
     .duo-section {
       background: var(--ivory-soft);
     }
@@ -785,9 +846,10 @@
     .duo-item {
       position: relative;
       overflow: hidden;
-      min-height: 520px;
+      min-height: 600px;
       display: flex;
       align-items: flex-end;
+      background: var(--forest-deep);
     }
 
     .duo-item img {
@@ -800,14 +862,14 @@
     }
 
     .duo-item:hover img {
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
 
     .duo-item::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(15, 35, 26, 0.85) 0%, rgba(15, 35, 26, 0.2) 50%, transparent 100%);
+      background: linear-gradient(to top, rgba(15, 35, 26, 0.9) 0%, rgba(15, 35, 26, 0.35) 55%, transparent 100%);
       z-index: 1;
     }
 
@@ -828,20 +890,20 @@
     }
 
     .duo-content p {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.85);
       margin-bottom: 1.5rem;
       max-width: 400px;
     }
 
     .duo-content .experience-list li {
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.8);
     }
 
     .duo-content .experience-list li::before {
       background: var(--gold);
     }
 
-    /* ---------- GALLERY (asymmetrical editorial) ---------- */
+    /* ---------- GALLERY ---------- */
     .gallery-section {
       background: var(--ivory);
     }
@@ -849,13 +911,14 @@
     .gallery-editorial {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: minmax(180px, auto);
+      grid-auto-rows: minmax(200px, auto);
       gap: 1.2rem;
     }
 
     .gallery-item {
       overflow: hidden;
       position: relative;
+      background: var(--beige);
     }
 
     .gallery-item img {
@@ -869,45 +932,14 @@
       transform: scale(1.06);
     }
 
-    .gallery-item:nth-child(1) {
-      grid-column: span 7;
-      grid-row: span 2;
-    }
-
-    .gallery-item:nth-child(2) {
-      grid-column: span 5;
-      grid-row: span 1;
-    }
-
-    .gallery-item:nth-child(3) {
-      grid-column: span 5;
-      grid-row: span 1;
-    }
-
-    .gallery-item:nth-child(4) {
-      grid-column: span 4;
-      grid-row: span 1;
-    }
-
-    .gallery-item:nth-child(5) {
-      grid-column: span 4;
-      grid-row: span 1;
-    }
-
-    .gallery-item:nth-child(6) {
-      grid-column: span 4;
-      grid-row: span 1;
-    }
-
-    .gallery-item:nth-child(7) {
-      grid-column: span 8;
-      grid-row: span 1;
-    }
-
-    .gallery-item:nth-child(8) {
-      grid-column: span 4;
-      grid-row: span 1;
-    }
+    .gallery-item:nth-child(1) { grid-column: span 7; grid-row: span 2; }
+    .gallery-item:nth-child(2) { grid-column: span 5; grid-row: span 1; }
+    .gallery-item:nth-child(3) { grid-column: span 5; grid-row: span 1; }
+    .gallery-item:nth-child(4) { grid-column: span 4; grid-row: span 1; }
+    .gallery-item:nth-child(5) { grid-column: span 4; grid-row: span 1; }
+    .gallery-item:nth-child(6) { grid-column: span 4; grid-row: span 1; }
+    .gallery-item:nth-child(7) { grid-column: span 8; grid-row: span 1; }
+    .gallery-item:nth-child(8) { grid-column: span 4; grid-row: span 1; }
 
     /* ---------- EVENTS ---------- */
     .events-section {
@@ -966,8 +998,9 @@
 
     .events-image {
       position: relative;
-      aspect-ratio: 3/4;
+      aspect-ratio: 4 / 5;
       overflow: hidden;
+      background: var(--beige);
     }
 
     .events-image img {
@@ -1046,7 +1079,7 @@
       font-weight: 300;
     }
 
-    /* ---------- CONTACT / FOOTER ---------- */
+    /* ---------- FOOTER ---------- */
     .footer {
       background: var(--forest-deep);
       color: rgba(255, 255, 255, 0.7);
@@ -1126,14 +1159,8 @@
 
     /* ---------- ANIMATIONS ---------- */
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .reveal {
@@ -1149,58 +1176,40 @@
 
     /* ---------- REDUCED MOTION ---------- */
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
       }
-
-      .hero-bg {
-        transform: none !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
+      .hero-bg { transform: none !important; }
+      .reveal { opacity: 1; transform: none; }
     }
 
     /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1200px) {
+      .experience-row { min-height: 460px; }
+      .experience-image { min-height: 460px; }
+      .duo-item { min-height: 540px; }
+    }
+
     @media (max-width: 1100px) {
-      .facilities-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .facility-item:nth-child(4n) {
-        border-right: 1px solid rgba(255, 255, 255, 0.12);
-      }
-      .facility-item:nth-child(3n) {
-        border-right: none;
-      }
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      .facilities-grid { grid-template-columns: repeat(3, 1fr); }
+      .facility-item:nth-child(4n) { border-right: 1px solid rgba(255, 255, 255, 0.12); }
+      .facility-item:nth-child(3n) { border-right: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
 
       .nav-links.active {
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
+        top: 0; left: 0;
+        width: 100%; height: 100vh;
         background: var(--ivory);
         padding: 6rem 2rem 3rem;
         gap: 1.8rem;
@@ -1210,33 +1219,18 @@
         justify-content: center;
       }
 
-      .nav-links.active a {
-        color: var(--forest);
-        font-size: 1.1rem;
-      }
-
-      .nav-links.active .nav-cta {
-        color: var(--forest) !important;
-        border-color: var(--forest);
-      }
+      .nav-links.active a { color: var(--forest); font-size: 1.1rem; }
+      .nav-links.active .nav-cta { color: var(--forest) !important; border-color: var(--forest); }
 
       .menu-toggle.active {
         position: fixed;
-        top: 1.5rem;
-        right: 1.5rem;
+        top: 1.5rem; right: 1.5rem;
         z-index: 1001;
         color: var(--forest) !important;
       }
 
-      .intro-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
-      .intro-image {
-        aspect-ratio: 16/10;
-        order: -1;
-      }
+      .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .intro-image { aspect-ratio: 16/10; order: -1; }
 
       .experience-row,
       .experience-row.reverse {
@@ -1244,152 +1238,53 @@
         direction: ltr;
         min-height: auto;
       }
+      .experience-row.reverse > * { direction: ltr; }
+      .experience-image { min-height: 320px; }
 
-      .experience-row.reverse > * {
-        direction: ltr;
-      }
+      .experience-grid-2 { grid-template-columns: 1fr; }
+      .experience-grid-2 .experience-row,
+      .experience-grid-2 .experience-image,
+      .experience-tile { min-height: 360px; }
 
-      .experience-image {
-        min-height: 300px;
-      }
+      .weddings-inner { grid-template-columns: 1fr; }
+      .weddings-image { min-height: 380px; }
 
-      .experience-grid-3 {
-        grid-template-columns: 1fr;
-      }
+      .camping-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .camping-images .img-wrap:first-child { margin-top: 0; }
+      .camping-images .img-wrap:last-child { margin-bottom: 0; }
 
-      .experience-grid-3 .experience-image {
-        min-height: 280px;
-      }
+      .duo-grid { grid-template-columns: 1fr; }
+      .duo-item { min-height: 460px; }
 
-      .weddings-inner {
-        grid-template-columns: 1fr;
-      }
+      .gallery-editorial { grid-template-columns: repeat(6, 1fr); }
+      .gallery-item:nth-child(1) { grid-column: span 6; grid-row: span 1; }
+      .gallery-item:nth-child(2) { grid-column: span 3; grid-row: span 1; }
+      .gallery-item:nth-child(3) { grid-column: span 3; grid-row: span 1; }
+      .gallery-item:nth-child(4) { grid-column: span 2; grid-row: span 1; }
+      .gallery-item:nth-child(5) { grid-column: span 2; grid-row: span 1; }
+      .gallery-item:nth-child(6) { grid-column: span 2; grid-row: span 1; }
+      .gallery-item:nth-child(7) { grid-column: span 6; grid-row: span 1; }
+      .gallery-item:nth-child(8) { grid-column: span 6; grid-row: span 1; }
 
-      .weddings-image {
-        min-height: 350px;
-      }
+      .events-editorial { grid-template-columns: 1fr; gap: 3rem; }
+      .events-image { aspect-ratio: 16/10; order: -1; }
 
-      .camping-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
+      .facilities-grid { grid-template-columns: repeat(2, 1fr); }
+      .facility-item:nth-child(3n) { border-right: 1px solid rgba(255, 255, 255, 0.12); }
+      .facility-item:nth-child(2n) { border-right: none; }
 
-      .camping-images .img-wrap:first-child {
-        margin-top: 0;
-      }
-
-      .camping-images .img-wrap:last-child {
-        margin-bottom: 0;
-      }
-
-      .duo-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .duo-item {
-        min-height: 400px;
-      }
-
-      .gallery-editorial {
-        grid-template-columns: repeat(6, 1fr);
-      }
-
-      .gallery-item:nth-child(1) {
-        grid-column: span 6;
-        grid-row: span 1;
-      }
-
-      .gallery-item:nth-child(2) {
-        grid-column: span 3;
-        grid-row: span 1;
-      }
-
-      .gallery-item:nth-child(3) {
-        grid-column: span 3;
-        grid-row: span 1;
-      }
-
-      .gallery-item:nth-child(4) {
-        grid-column: span 2;
-        grid-row: span 1;
-      }
-
-      .gallery-item:nth-child(5) {
-        grid-column: span 2;
-        grid-row: span 1;
-      }
-
-      .gallery-item:nth-child(6) {
-        grid-column: span 2;
-        grid-row: span 1;
-      }
-
-      .gallery-item:nth-child(7) {
-        grid-column: span 6;
-        grid-row: span 1;
-      }
-
-      .gallery-item:nth-child(8) {
-        grid-column: span 6;
-        grid-row: span 1;
-      }
-
-      .events-editorial {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
-      .events-image {
-        aspect-ratio: 16/10;
-        order: -1;
-      }
-
-      .facilities-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .facility-item:nth-child(3n) {
-        border-right: 1px solid rgba(255, 255, 255, 0.12);
-      }
-
-      .facility-item:nth-child(2n) {
-        border-right: none;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
+      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
 
     @media (max-width: 600px) {
-      .hero-content h1 {
-        font-size: clamp(2.4rem, 9vw, 3.2rem);
-      }
+      .hero-content h1 { font-size: clamp(2.4rem, 9vw, 3.2rem); }
+      .hero-actions { flex-direction: column; gap: 0.8rem; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
 
-      .hero-actions {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
+      .weddings-list { grid-template-columns: 1fr; }
+      .camping-images { grid-template-columns: 1fr; }
 
-      .hero-actions .btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .weddings-list {
-        grid-template-columns: 1fr;
-      }
-
-      .camping-images {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-editorial {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 250px;
-      }
-
+      .gallery-editorial { grid-template-columns: 1fr; grid-auto-rows: 250px; }
       .gallery-item:nth-child(1),
       .gallery-item:nth-child(2),
       .gallery-item:nth-child(3),
@@ -1402,31 +1297,14 @@
         grid-row: span 1;
       }
 
-      .facilities-grid {
-        grid-template-columns: 1fr;
-      }
+      .facilities-grid { grid-template-columns: 1fr; }
+      .facility-item { border-right: none !important; }
 
-      .facility-item {
-        border-right: none !important;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-      }
+      .footer-bottom { flex-direction: column; text-align: center; }
     }
 
-    /* Ensure images never cause horizontal overflow */
-    img,
-    video,
-    iframe {
-      max-width: 100%;
-    }
-
-    /* Lazy loading placeholder background */
-    .lazy-bg {
-      background-color: var(--beige);
-    }
+    img, video, iframe { max-width: 100%; }
+    .lazy-bg { background-color: var(--beige); }
   </style>
 </head>
 <body>
@@ -1536,9 +1414,9 @@
       </div>
     </div>
 
-    <!-- Classic Cars + Family Meetings / Engagements / Koitos (grid of 2) -->
-    <div class="experience-grid-3">
-      <div class="experience-row" style="min-height: 420px;">
+    <!-- Two-up: Classic Cars + Family / Engagements / Koitos -->
+    <div class="experience-grid-2">
+      <div class="experience-row">
         <div class="experience-image">
           <img src="https://i.pinimg.com/1200x/b0/3b/b0/b03bb09217c84d1e1186245ee41de612.jpg" alt="Classic car exhibition at Marura Gardens" loading="lazy">
         </div>
@@ -1555,9 +1433,12 @@
         </div>
       </div>
 
-      <div class="experience-row" style="min-height: 420px;">
-        <div class="experience-image">
-          <img src="https://i.pinimg.com/1200x/a8/7c/bf/a87cbf8735fd824632d7ca73cf779121.jpg" alt="Family gathering and engagement ceremony at Marura Gardens" loading="lazy">
+      <div class="experience-tile">
+        <img src="https://i.pinimg.com/1200x/a8/7c/bf/a87cbf8735fd824632d7ca73cf779121.jpg" alt="Family gathering and engagement ceremony at Marura Gardens" loading="lazy">
+        <div class="experience-tile-content">
+          <span class="section-label">04</span>
+          <h3>Family Meetings &amp; Engagement Ceremonies</h3>
+          <p>Koitos, engagements and family gatherings in a serene garden setting.</p>
         </div>
       </div>
     </div>
@@ -1665,7 +1546,7 @@
     </div>
   </section>
 
-  <!-- ========== CLASSIC CARS & FAMILY MEETINGS / ENGAGEMENTS / KOITOS (DUO) ========== -->
+  <!-- ========== DUO ========== -->
   <section class="duo-section">
     <div class="duo-grid">
       <div class="duo-item">
@@ -1699,7 +1580,7 @@
     </div>
   </section>
 
-  <!-- ========== GALLERY (ASYMMETRICAL) ========== -->
+  <!-- ========== GALLERY ========== -->
   <section class="gallery-section" id="gallery">
     <div class="container">
       <div class="section-title center reveal">
@@ -1708,30 +1589,14 @@
         <p>Our gardens are designed to let every event breathe — no congestion, just nature.</p>
       </div>
       <div class="gallery-editorial reveal">
-        <div class="gallery-item">
-          <img src="https://i.pinimg.com/736x/01/4d/46/014d4665e227c019c85cfc28de37ca8d.jpg" alt="Garden wedding ceremony" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.pinimg.com/736x/72/2a/79/722a790f52418206e53278c155e872a4.jpg" alt="Elegant garden reception setup" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.pinimg.com/736x/bf/f0/3c/bff03c67590adf641620f6b41ff2ddd5.jpg" alt="Luxury glamping tent" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.pinimg.com/1200x/b0/3b/b0/b03bb09217c84d1e1186245ee41de612.jpg" alt="Classic car in garden setting" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.pinimg.com/1200x/a8/7c/bf/a87cbf8735fd824632d7ca73cf779121.jpg" alt="Family gathering" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.pinimg.com/736x/5b/d1/99/5bd1990a6cbb50bcacb192a2c9b9966a.jpg" alt="Family picnic in the gardens" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.pinimg.com/736x/01/4d/46/014d4665e227c019c85cfc28de37ca8d.jpg" alt="Landscaped gardens at Marura" loading="lazy">
-        </div>
-        <div class="gallery-item">
-          <img src="https://i.pinimg.com/736x/72/2a/79/722a790f52418206e53278c155e872a4.jpg" alt="Corporate retreat in nature" loading="lazy">
-        </div>
+        <div class="gallery-item"><img src="https://i.pinimg.com/736x/01/4d/46/014d4665e227c019c85cfc28de37ca8d.jpg" alt="Garden wedding ceremony" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://i.pinimg.com/736x/72/2a/79/722a790f52418206e53278c155e872a4.jpg" alt="Elegant garden reception setup" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://i.pinimg.com/736x/bf/f0/3c/bff03c67590adf641620f6b41ff2ddd5.jpg" alt="Luxury glamping tent" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://i.pinimg.com/1200x/b0/3b/b0/b03bb09217c84d1e1186245ee41de612.jpg" alt="Classic car in garden setting" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://i.pinimg.com/1200x/a8/7c/bf/a87cbf8735fd824632d7ca73cf779121.jpg" alt="Family gathering" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://i.pinimg.com/736x/5b/d1/99/5bd1990a6cbb50bcacb192a2c9b9966a.jpg" alt="Family picnic in the gardens" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://i.pinimg.com/736x/01/4d/46/014d4665e227c019c85cfc28de37ca8d.jpg" alt="Landscaped gardens at Marura" loading="lazy"></div>
+        <div class="gallery-item"><img src="https://i.pinimg.com/736x/72/2a/79/722a790f52418206e53278c155e872a4.jpg" alt="Corporate retreat in nature" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -1746,38 +1611,14 @@
           <div class="divider"></div>
           <p>Throughout the year, Marura Gardens hosts a calendar of distinctive events that bring the community together.</p>
           <div class="events-list">
-            <div class="event-item">
-              <span class="event-name">Classic Car Sunday</span>
-              <span class="event-timing">Monthly</span>
-            </div>
-            <div class="event-item">
-              <span class="event-name">Family &amp; Engagement Gatherings</span>
-              <span class="event-timing">Quarterly</span>
-            </div>
-            <div class="event-item">
-              <span class="event-name">Garden Festival</span>
-              <span class="event-timing">Annual</span>
-            </div>
-            <div class="event-item">
-              <span class="event-name">Christmas Family Carnival</span>
-              <span class="event-timing">December</span>
-            </div>
-            <div class="event-item">
-              <span class="event-name">Easter Camping Weekend</span>
-              <span class="event-timing">Easter</span>
-            </div>
-            <div class="event-item">
-              <span class="event-name">Valentine's Garden Dinner</span>
-              <span class="event-timing">February</span>
-            </div>
-            <div class="event-item">
-              <span class="event-name">Corporate Open Days</span>
-              <span class="event-timing">Seasonal</span>
-            </div>
-            <div class="event-item">
-              <span class="event-name">School Holiday Camping</span>
-              <span class="event-timing">School Holidays</span>
-            </div>
+            <div class="event-item"><span class="event-name">Classic Car Sunday</span><span class="event-timing">Monthly</span></div>
+            <div class="event-item"><span class="event-name">Family &amp; Engagement Gatherings</span><span class="event-timing">Quarterly</span></div>
+            <div class="event-item"><span class="event-name">Garden Festival</span><span class="event-timing">Annual</span></div>
+            <div class="event-item"><span class="event-name">Christmas Family Carnival</span><span class="event-timing">December</span></div>
+            <div class="event-item"><span class="event-name">Easter Camping Weekend</span><span class="event-timing">Easter</span></div>
+            <div class="event-item"><span class="event-name">Valentine's Garden Dinner</span><span class="event-timing">February</span></div>
+            <div class="event-item"><span class="event-name">Corporate Open Days</span><span class="event-timing">Seasonal</span></div>
+            <div class="event-item"><span class="event-name">School Holiday Camping</span><span class="event-timing">School Holidays</span></div>
           </div>
         </div>
         <div class="events-image reveal">
@@ -1796,89 +1637,32 @@
         <p>Everything you need for a seamless visit — from online booking to customer support.</p>
       </div>
       <div class="facilities-grid reveal">
-        <div class="facility-item">
-          <i class="fas fa-calendar-check facility-icon"></i>
-          <h4>Online Booking Calendar</h4>
-          <p>Check availability and reserve your dates with ease.</p>
-        </div>
-        <div class="facility-item">
-          <i class="fas fa-ticket-alt facility-icon"></i>
-          <h4>Event Ticket Sales</h4>
-          <p>Purchase tickets for our signature events and festivals.</p>
-        </div>
-        <div class="facility-item">
-          <i class="fas fa-user-circle facility-icon"></i>
-          <h4>Customer Login Portal</h4>
-          <p>Manage your bookings and preferences in one place.</p>
-        </div>
-        <div class="facility-item">
-          <i class="fas fa-store facility-icon"></i>
-          <h4>Vendor Registration</h4>
-          <p>Register as a vendor for events and markets.</p>
-        </div>
-        <div class="facility-item">
-          <i class="fas fa-clock facility-icon"></i>
-          <h4>Event Countdowns</h4>
-          <p>Stay informed about upcoming events.</p>
-        </div>
-        <div class="facility-item">
-          <i class="fas fa-envelope facility-icon"></i>
-          <h4>Newsletter Subscription</h4>
-          <p>Receive updates on events and seasonal offers.</p>
-        </div>
-        <div class="facility-item">
-          <i class="fab fa-whatsapp facility-icon"></i>
-          <h4>Live Chat / WhatsApp</h4>
-          <p>Connect with us instantly for enquiries.</p>
-        </div>
-        <div class="facility-item">
-          <i class="fas fa-search facility-icon"></i>
-          <h4>SEO Optimized</h4>
-          <p>Find us easily online.</p>
-        </div>
-        <div class="facility-item">
-          <i class="fas fa-video facility-icon"></i>
-          <h4>Drone Video Gallery</h4>
-          <p>Experience Marura Gardens from above.</p>
-        </div>
-        <div class="facility-item">
-          <i class="fas fa-camera facility-icon"></i>
-          <h4>Photo Galleries</h4>
-          <p>Browse our collection of beautiful moments.</p>
-        </div>
-        <div class="facility-item">
-          <i class="fas fa-star facility-icon"></i>
-          <h4>Google Reviews Integration</h4>
-          <p>See what our guests are saying.</p>
-        </div>
-        <div class="facility-item">
-          <i class="fas fa-chart-line facility-icon"></i>
-          <h4>Customer Dashboard</h4>
-          <p>Track your bookings and history.</p>
-        </div>
+        <div class="facility-item"><i class="fas fa-calendar-check facility-icon"></i><h4>Online Booking Calendar</h4><p>Check availability and reserve your dates with ease.</p></div>
+        <div class="facility-item"><i class="fas fa-ticket-alt facility-icon"></i><h4>Event Ticket Sales</h4><p>Purchase tickets for our signature events and festivals.</p></div>
+        <div class="facility-item"><i class="fas fa-user-circle facility-icon"></i><h4>Customer Login Portal</h4><p>Manage your bookings and preferences in one place.</p></div>
+        <div class="facility-item"><i class="fas fa-store facility-icon"></i><h4>Vendor Registration</h4><p>Register as a vendor for events and markets.</p></div>
+        <div class="facility-item"><i class="fas fa-clock facility-icon"></i><h4>Event Countdowns</h4><p>Stay informed about upcoming events.</p></div>
+        <div class="facility-item"><i class="fas fa-envelope facility-icon"></i><h4>Newsletter Subscription</h4><p>Receive updates on events and seasonal offers.</p></div>
+        <div class="facility-item"><i class="fab fa-whatsapp facility-icon"></i><h4>Live Chat / WhatsApp</h4><p>Connect with us instantly for enquiries.</p></div>
+        <div class="facility-item"><i class="fas fa-search facility-icon"></i><h4>SEO Optimized</h4><p>Find us easily online.</p></div>
+        <div class="facility-item"><i class="fas fa-video facility-icon"></i><h4>Drone Video Gallery</h4><p>Experience Marura Gardens from above.</p></div>
+        <div class="facility-item"><i class="fas fa-camera facility-icon"></i><h4>Photo Galleries</h4><p>Browse our collection of beautiful moments.</p></div>
+        <div class="facility-item"><i class="fas fa-star facility-icon"></i><h4>Google Reviews Integration</h4><p>See what our guests are saying.</p></div>
+        <div class="facility-item"><i class="fas fa-chart-line facility-icon"></i><h4>Customer Dashboard</h4><p>Track your bookings and history.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ========== CONTACT / FOOTER ========== -->
+  <!-- ========== FOOTER ========== -->
   <footer class="footer" id="contact">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>Marura Gardens</h3>
           <p>North Rift's premier outdoor lifestyle and events destination. Four acres of landscaped gardens, premium events, glamping and unforgettable outdoor moments.</p>
-          <div class="footer-contact-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>North Rift, Kenya</span>
-          </div>
-          <div class="footer-contact-item">
-            <i class="fas fa-phone-alt"></i>
-            <span>+254 700 000 000</span>
-          </div>
-          <div class="footer-contact-item">
-            <i class="fas fa-envelope"></i>
-            <span>hello@maruragardens.co.ke</span>
-          </div>
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>North Rift, Kenya</span></div>
+          <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>+254 700 000 000</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>hello@maruragardens.co.ke</span></div>
         </div>
         <div>
           <h4>Explore</h4>
@@ -1922,22 +1706,14 @@
     (function() {
       'use strict';
 
-      // ---------- NAVBAR SCROLL EFFECT ----------
+      // ---------- NAVBAR ----------
       const navbar = document.getElementById('navbar');
-      let lastScroll = 0;
-
       function handleScroll() {
-        const scrollY = window.scrollY;
-        if (scrollY > 80) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-        lastScroll = scrollY;
+        if (window.scrollY > 80) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
       }
-
       window.addEventListener('scroll', handleScroll, { passive: true });
-      handleScroll(); // initial state
+      handleScroll();
 
       // ---------- MOBILE MENU ----------
       const menuToggle = document.getElementById('menuToggle');
@@ -1956,45 +1732,27 @@
         const isActive = navLinks.classList.toggle('active');
         menuToggle.classList.toggle('active');
         menuToggle.setAttribute('aria-expanded', isActive);
-        if (toggleIcon) {
-          toggleIcon.className = isActive ? 'fas fa-times' : 'fas fa-bars';
-        }
+        if (toggleIcon) toggleIcon.className = isActive ? 'fas fa-times' : 'fas fa-bars';
         document.body.style.overflow = isActive ? 'hidden' : '';
       }
 
-      menuToggle.addEventListener('click', function(e) {
-        e.stopPropagation();
-        toggleMenu();
-      });
-
-      // Close menu on link click (mobile)
+      menuToggle.addEventListener('click', function(e) { e.stopPropagation(); toggleMenu(); });
       navLinks.querySelectorAll('a').forEach(function(link) {
         link.addEventListener('click', function() {
-          if (navLinks.classList.contains('active')) {
-            toggleMenu(true);
-          }
+          if (navLinks.classList.contains('active')) toggleMenu(true);
         });
       });
-
-      // Close menu on outside click (mobile)
       document.addEventListener('click', function(e) {
-        if (navLinks.classList.contains('active') &&
-            !navLinks.contains(e.target) &&
-            !menuToggle.contains(e.target)) {
+        if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
           toggleMenu(true);
         }
       });
-
-      // Close on Escape key
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-          toggleMenu(true);
-        }
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) toggleMenu(true);
       });
 
-      // ---------- SCROLL REVEAL ANIMATIONS ----------
+      // ---------- SCROLL REVEAL ----------
       const revealElements = document.querySelectorAll('.reveal');
-
       if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const observer = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
@@ -2003,28 +1761,19 @@
               observer.unobserve(entry.target);
             }
           });
-        }, {
-          threshold: 0.12,
-          rootMargin: '0px 0px -60px 0px'
-        });
-
-        revealElements.forEach(function(el) {
-          observer.observe(el);
-        });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        revealElements.forEach(function(el) { observer.observe(el); });
       } else {
-        // Fallback: show all
-        revealElements.forEach(function(el) {
-          el.classList.add('visible');
-        });
+        revealElements.forEach(function(el) { el.classList.add('visible'); });
       }
 
-      // ---------- HERO IMAGE SCALE ON LOAD ----------
+      // ---------- HERO LOADED ----------
       window.addEventListener('load', function() {
         const hero = document.querySelector('.hero');
         if (hero) hero.classList.add('loaded');
       });
 
-      // ---------- HERO BACKGROUND SLIDESHOW (every 3 seconds) ----------
+      // ---------- HERO SLIDESHOW (3s) ----------
       (function heroSlideshow() {
         const heroBg = document.querySelector('.hero-bg');
         if (!heroBg) return;
@@ -2038,58 +1787,37 @@
           'https://i.pinimg.com/736x/5b/d1/99/5bd1990a6cbb50bcacb192a2c9b9966a.jpg'
         ];
 
-        // Preload all images so swaps are instant
-        images.forEach(function(src) {
-          const img = new Image();
-          img.src = src;
-        });
+        images.forEach(function(src) { const i = new Image(); i.src = src; });
 
         let index = 0;
         heroBg.style.backgroundImage = 'url("' + images[0] + '")';
 
         setInterval(function() {
           index = (index + 1) % images.length;
+          // Crossfade: fade out, swap, fade in
           heroBg.style.opacity = '0';
           setTimeout(function() {
             heroBg.style.backgroundImage = 'url("' + images[index] + '")';
             heroBg.style.opacity = '1';
-          }, 800); // half of the fade duration
-        }, 3000); // 3 seconds
+          }, 700);
+        }, 3000);
       })();
 
-      // ---------- SMOOTH SCROLL FOR ANCHOR LINKS (native CSS handles most) ----------
-      // Ensure hash links close mobile menu and scroll properly
+      // ---------- ANCHOR LINKS ----------
       document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
-          const href = this.getAttribute('href');
-          if (href === '#') return;
-          const target = document.querySelector(href);
-          if (target) {
-            // Let native smooth scroll handle (CSS scroll-behavior)
-            // But close mobile menu
-            if (navLinks.classList.contains('active')) {
-              toggleMenu(true);
-            }
-          }
+        anchor.addEventListener('click', function() {
+          if (navLinks.classList.contains('active')) toggleMenu(true);
         });
       });
 
-      // ---------- LAZY BACKGROUND IMAGES (for image-break sections) ----------
-      // The image-break uses background-image already in HTML.
-      // For better performance we could lazy-load, but they're decorative
-      // and only two sections — acceptable.
-
-      // ---------- PREVENT HORIZONTAL SCROLL ON MOBILE (safety) ----------
-      // Ensure no element exceeds viewport width
+      // ---------- OVERFLOW SAFETY ----------
       function checkOverflow() {
         if (document.body.scrollWidth > document.body.clientWidth) {
-          // If overflow exists, force it hidden
           document.body.style.overflowX = 'hidden';
         }
       }
       window.addEventListener('resize', checkOverflow);
       checkOverflow();
-
     })();
   </script>
 </body>
