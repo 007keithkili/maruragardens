@@ -147,14 +147,8 @@ em{font-style:italic;color:var(--moss)}
 .link-arrow:hover{gap:1.2rem;color:var(--gold)}
 
 /* ══════════════════════════════════════════════════════════
-   04 · GRAIN / CURSOR / LOADER / PROGRESS
+   04 · CURSOR / LOADER / PROGRESS
    ══════════════════════════════════════════════════════════ */
-.grain{
-  position:fixed;inset:0;z-index:9997;pointer-events:none;
-  opacity:.05;mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
 .cursor{position:fixed;top:0;left:0;z-index:9998;pointer-events:none;opacity:0;transition:opacity .35s var(--ease)}
 .cursor__dot{
   position:absolute;translate:-50% -50%;
@@ -273,23 +267,24 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
   position:absolute;inset:0;
   background-size:cover;background-position:center;
   opacity:0;transition:opacity 1.7s var(--ease);
-  will-change:opacity,transform;
+  will-change:opacity;
+  backface-visibility:hidden;
+  transform:translateZ(0);
 }
-.hero__slide.is-active{opacity:1;animation:kenburns 9s linear forwards}
-@keyframes kenburns{from{transform:scale(1.03)}to{transform:scale(1.15)}}
+.hero__slide.is-active{opacity:1}
 
 .hero__veil{
   position:absolute;inset:0;z-index:-2;
   background:
-    linear-gradient(to top,rgba(10,19,16,.94) 0%,rgba(10,19,16,.6) 34%,rgba(10,19,16,.12) 66%,rgba(10,19,16,.5) 100%),
-    radial-gradient(120% 90% at 50% 100%,transparent 40%,rgba(10,19,16,.55) 100%);
+    linear-gradient(to top,rgba(10,19,16,.88) 0%,rgba(10,19,16,.5) 34%,rgba(10,19,16,.05) 66%,rgba(10,19,16,.38) 100%),
+    radial-gradient(120% 90% at 50% 100%,transparent 40%,rgba(10,19,16,.4) 100%);
 }
 
 .hero__inner{display:grid;gap:clamp(1.6rem,3.5vw,2.6rem);color:var(--paper)}
 .hero__eyebrow{
   font-family:var(--mono);font-size:.66rem;letter-spacing:.26em;
   text-transform:uppercase;color:var(--gold-2);opacity:0;
-  transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease);
+  transform:translateY(16px);transition:opacity .4s var(--ease),transform .4s var(--ease);
 }
 body.is-ready .hero__eyebrow{opacity:1;transform:none;transition-delay:.35s}
 
@@ -920,7 +915,6 @@ body.is-ready .hero__bar{opacity:1}
 </head>
 
 <body>
-<div class="grain" aria-hidden="true"></div>
 <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span></div>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
@@ -982,9 +976,10 @@ body.is-ready .hero__bar{opacity:1}
 <section class="hero" id="home">
   <div class="hero__media" aria-hidden="true">
     <div class="hero__slide is-active" style="background-image:url('https://i.pinimg.com/736x/01/4d/46/014d4665e227c019c85cfc28de37ca8d.jpg')"></div>
-    <div class="hero__slide" style="background-image:url('blob:https://www.pinterest.com/37877755-492e-4429-bf04-49d3163a3b14')"></div>
+    <div class="hero__slide" style="background-image:url('https://i.pinimg.com/736x/62/43/8c/62438c548dee7e4e32def443ac490760.jpg')"></div>
     <div class="hero__slide" style="background-image:url('https://i.pinimg.com/736x/42/cb/c4/42cbc4a3bb50e73a6d310b5b1e08b4a9.jpg')"></div>
     <div class="hero__slide" style="background-image:url('https://i.pinimg.com/736x/03/cf/6f/03cf6fb6a6fe78e0153dad391e78d60c.jpg')"></div>
+     <div class="hero__slide" style="background-image:url('https://i.pinimg.com/736x/ae/c9/ea/aec9ead6c1eea057a1a19518bda24566.jpg')"></div>
   </div>
   <div class="hero__veil" aria-hidden="true"></div>
 
