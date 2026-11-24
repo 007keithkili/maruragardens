@@ -256,22 +256,34 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
 /* ══════════════════════════════════════════════════════════
    06 · HERO
    ══════════════════════════════════════════════════════════ */
+   
+
 .hero{
   position:relative;min-height:100svh;
   display:flex;flex-direction:column;justify-content:flex-end;
   padding-block:clamp(7rem,16vh,10rem) clamp(1.4rem,3.5vh,2.4rem);
   overflow:hidden;isolation:isolate;background:var(--ink);
 }
-.hero__media{position:absolute;inset:0;z-index:-3}
-.hero__slide{
-  position:absolute;inset:0;
-  background-size:cover;background-position:center;
-  opacity:0;transition:opacity 1.7s var(--ease);
-  will-change:opacity;
-  backface-visibility:hidden;
-  transform:translateZ(0);
+
+.hero__media{
+  position:absolute;
+  inset:0;
+  z-index:-3;
+  overflow:hidden;
 }
-.hero__slide.is-active{opacity:1}
+
+.hero__media iframe{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:100vw;
+  height:56.25vw;
+  min-width:177.78vh;
+  min-height:100vh;
+  transform:translate(-50%,-50%);
+  border:0;
+  pointer-events:none;
+}
 
 .hero__veil{
   position:absolute;inset:0;z-index:-2;
@@ -334,6 +346,7 @@ body.is-ready .hero__bar{opacity:1}
   0%{transform:translateY(-100%)}50%{transform:translateY(0)}100%{transform:translateY(100%)}
 }
 .hero__count b{color:var(--gold-2);font-weight:500}
+
 
 /* ══════════════════════════════════════════════════════════
    07 · MARQUEE
@@ -965,51 +978,22 @@ body.is-ready .hero__bar{opacity:1}
   <a href="#contact">Plan a Visit</a>
   <div class="mobile-menu__foot">
     North Rift · Kenya<br>
-    hello@maruragardens.co.ke<br>
+    Maruragardens@gmail.com<br>
     +254 700 000 000
   </div>
 </div>
 
 <main id="main">
 
-<!-- ═══════════ HERO ═══════════ -->
-<section class="hero" id="home">
-  <div class="hero__media" aria-hidden="true">
-    <div class="hero__slide is-active" style="background-image:url('https://i.pinimg.com/736x/01/4d/46/014d4665e227c019c85cfc28de37ca8d.jpg')"></div>
-    <div class="hero__slide" style="background-image:url('https://i.pinimg.com/736x/62/43/8c/62438c548dee7e4e32def443ac490760.jpg')"></div>
-    <div class="hero__slide" style="background-image:url('https://i.pinimg.com/736x/42/cb/c4/42cbc4a3bb50e73a6d310b5b1e08b4a9.jpg')"></div>
-    <div class="hero__slide" style="background-image:url('https://i.pinimg.com/736x/03/cf/6f/03cf6fb6a6fe78e0153dad391e78d60c.jpg')"></div>
-     <div class="hero__slide" style="background-image:url('https://i.pinimg.com/736x/ae/c9/ea/aec9ead6c1eea057a1a19518bda24566.jpg')"></div>
-  </div>
-  <div class="hero__veil" aria-hidden="true"></div>
-
-  <div class="wrap hero__inner">
-    <p class="hero__eyebrow">North Rift · Kenya — Est. 2019</p>
-
-    <h1 class="hero__title">
-      <span class="line"><span style="--d:.05s">Where nature</span></span>
-      <span class="line"><span style="--d:.14s">becomes the</span></span>
-      <span class="line"><span style="--d:.23s"><em>occasion.</em></span></span>
-    </h1>
-
-    <div class="hero__foot">
-      <p class="hero__lede">
-        Four acres of landscaped gardens, exclusive events, luxury glamping
-        and quiet moments — crafted for those who appreciate the extraordinary.
-      </p>
-      <div class="hero__actions">
-        <a href="#contact" class="btn btn--light"><span>Begin your journey <i class="fas fa-arrow-right"></i></span></a>
-        <a href="#experiences" class="btn btn--gold"><span>Explore Marura</span></a>
-      </div>
-    </div>
-
-    <div class="hero__bar">
-      <span>0°12′N · 36°04′E</span>
-      <a href="#manifesto" class="hero__scroll"><i aria-hidden="true"></i><span>Scroll</span></a>
-      <span class="hero__count"><b id="slideNow">01</b> / 04</span>
-    </div>
-  </div>
-</section>
+<div class="hero__media">
+  <iframe
+    src="https://www.youtube.com/embed/mv-uSN-YEa0?autoplay=1&mute=1&loop=1&playlist=mv-uSN-YEa0&controls=0&rel=0&playsinline=1"
+    title="Marura Gardens Background Video"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
+</div>
 
 <!-- ═══════════ MARQUEE ═══════════ -->
 <div class="marquee" aria-hidden="true">
