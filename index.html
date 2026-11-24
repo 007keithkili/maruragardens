@@ -9,7 +9,7 @@
 <meta property="og:title" content="Marura Gardens — Where Nature Becomes the Occasion" />
 <meta property="og:description" content="Four acres of landscaped gardens. Weddings, glamping, events and quiet escapes in the North Rift." />
 <meta property="og:type" content="website" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2312302a'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='56' fill='%23c0a87a' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="https://i.pinimg.com/736x/ca/11/67/ca1167055c2ce6c93f93d5ac9dc81d16.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -197,9 +197,34 @@ em{font-style:italic;color:var(--moss)}
 }
 .nav__inner{display:flex;align-items:center;justify-content:space-between;gap:2rem}
 
-.logo{display:inline-flex;align-items:center;gap:.7rem;font-family:var(--display);font-size:1.45rem;letter-spacing:-.01em;font-weight:400}
-.logo i{font-size:.85em;color:var(--gold);transition:transform .6s var(--ease)}
-.logo:hover i{transform:rotate(-18deg)}
+/* ── Brand / logo mark ─────────────────────────────────── */
+.logo{
+  display:inline-flex;align-items:center;gap:.75rem;
+  font-family:var(--display);
+  font-size:clamp(1.02rem,2.5vw,1.45rem);
+  letter-spacing:-.01em;font-weight:400;
+  min-width:0;
+}
+.logo__mark{
+  width:clamp(38px,4.6vw,48px);
+  height:clamp(38px,4.6vw,48px);
+  flex-shrink:0;
+  object-fit:cover;              /* switch to 'contain' if the logo gets cropped */
+  object-position:center;
+  border-radius:12px;
+  background:var(--forest);
+  border:1px solid rgba(192,168,122,.5);
+  box-shadow:0 8px 20px -12px rgba(10,19,16,.75);
+  transition:transform .6s var(--ease),box-shadow .6s var(--ease);
+}
+.logo:hover .logo__mark{
+  transform:scale(1.06) rotate(-6deg);
+  box-shadow:0 12px 26px -12px rgba(10,19,16,.85);
+}
+/* keep the wordmark from pushing the nav CTA on very small phones */
+@media (max-width:400px){
+  .logo span{font-size:.95rem}
+}
 
 .nav__links{display:flex;align-items:center;gap:2.1rem}
 .nav__links a{
@@ -256,8 +281,6 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
 /* ══════════════════════════════════════════════════════════
    06 · HERO
    ══════════════════════════════════════════════════════════ */
-   
-
 .hero{
   position:relative;min-height:100svh;
   display:flex;flex-direction:column;justify-content:flex-end;
@@ -265,25 +288,27 @@ body.menu-open .mobile-menu a{opacity:1;transform:none}
   overflow:hidden;isolation:isolate;background:var(--ink);
 }
 
+/* background video (with poster fallback) */
 .hero__media{
-  position:absolute;
-  inset:0;
-  z-index:-3;
-  overflow:hidden;
+  position:absolute;inset:0;z-index:-3;
+  overflow:hidden;background:var(--ink);
 }
-
-.hero__media iframe{
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:100vw;
-  height:56.25vw;
-  min-width:177.78vh;
-  min-height:100vh;
+.hero__poster{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transform:scale(1.04);
+}
+/* 16:9 iframe stretched to "cover" the hero at any aspect ratio */
+.hero__frame{
+  position:absolute;top:50%;left:50%;
+  width:100vw;height:56.25vw;
+  min-width:177.78vh;min-height:100vh;
   transform:translate(-50%,-50%);
-  border:0;
-  pointer-events:none;
+  border:0;pointer-events:none;
+  opacity:0;
+  transition:opacity 1.6s var(--ease);
 }
+.hero__frame.is-live{opacity:1}
 
 .hero__veil{
   position:absolute;inset:0;z-index:-2;
@@ -345,8 +370,6 @@ body.is-ready .hero__bar{opacity:1}
 @keyframes scrollLine{
   0%{transform:translateY(-100%)}50%{transform:translateY(0)}100%{transform:translateY(100%)}
 }
-.hero__count b{color:var(--gold-2);font-weight:500}
-
 
 /* ══════════════════════════════════════════════════════════
    07 · MARQUEE
@@ -946,7 +969,9 @@ body.is-ready .hero__bar{opacity:1}
 <header class="nav" id="nav">
   <div class="wrap nav__inner">
     <a href="#home" class="logo" aria-label="Marura Gardens home">
-      <i class="fas fa-leaf" aria-hidden="true"></i>
+      <img class="logo__mark"
+           src="https://i.pinimg.com/736x/ca/11/67/ca1167055c2ce6c93f93d5ac9dc81d16.jpg"
+           alt="" width="48" height="48" decoding="async" />
       <span>Marura Gardens</span>
     </a>
 
@@ -978,22 +1003,50 @@ body.is-ready .hero__bar{opacity:1}
   <a href="#contact">Plan a Visit</a>
   <div class="mobile-menu__foot">
     North Rift · Kenya<br>
-    Maruragardens@gmail.com<br>
+    hello@maruragardens.co.ke<br>
     +254 700 000 000
   </div>
 </div>
 
 <main id="main">
 
-<div class="hero__media">
-  <iframe
-    src="https://www.youtube.com/embed/mv-uSN-YEa0?autoplay=1&mute=1&loop=1&playlist=mv-uSN-YEa0&controls=0&rel=0&playsinline=1"
-    title="Marura Gardens Background Video"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen>
-  </iframe>
-</div>
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="home">
+  <!-- ▼▼ PASTE YOUR YOUTUBE LINK HERE ▼▼ -->
+  <div class="hero__media" id="heroMedia"
+       data-video="https://youtu.be/mv-uSN-YEa0"
+       aria-hidden="true">
+    <div class="hero__poster"
+         style="background-image:url('https://i.pinimg.com/736x/01/4d/46/014d4665e227c019c85cfc28de37ca8d.jpg')"></div>
+  </div>
+  <div class="hero__veil" aria-hidden="true"></div>
+
+  <div class="wrap hero__inner">
+    <p class="hero__eyebrow">North Rift · Kenya — Est. 2019</p>
+
+    <h1 class="hero__title">
+      <span class="line"><span style="--d:.05s">Where nature</span></span>
+      <span class="line"><span style="--d:.14s">becomes the</span></span>
+      <span class="line"><span style="--d:.23s"><em>occasion.</em></span></span>
+    </h1>
+
+    <div class="hero__foot">
+      <p class="hero__lede">
+        Four acres of landscaped gardens, exclusive events, luxury glamping
+        and quiet moments — crafted for those who appreciate the extraordinary.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--light"><span>Begin your journey <i class="fas fa-arrow-right"></i></span></a>
+        <a href="#experiences" class="btn btn--gold"><span>Explore Marura</span></a>
+      </div>
+    </div>
+
+    <div class="hero__bar">
+      <span>0°12′N · 36°04′E</span>
+      <a href="#manifesto" class="hero__scroll"><i aria-hidden="true"></i><span>Scroll</span></a>
+    </div>
+  </div>
+</section>
 
 <!-- ═══════════ MARQUEE ═══════════ -->
 <div class="marquee" aria-hidden="true">
@@ -1371,11 +1424,11 @@ body.is-ready .hero__bar{opacity:1}
       <div class="form__row">
         <div class="field">
           <label for="name">Full name</label>
-          <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+          <input id="name" name="name" type="text" placeholder="" required />
         </div>
         <div class="field">
           <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="jane@email.com" required />
+          <input id="email" name="email" type="email" placeholder="kili@email.com" required />
         </div>
       </div>
 
@@ -1416,11 +1469,14 @@ body.is-ready .hero__bar{opacity:1}
   <div class="wrap">
     <div class="footer__grid">
       <div class="footer__brand">
+        <img class="logo__mark" style="margin-bottom:1.2rem"
+             src="https://i.pinimg.com/736x/ca/11/67/ca1167055c2ce6c93f93d5ac9dc81d16.jpg"
+             alt="" width="48" height="48" loading="lazy" />
         <h3>Marura Gardens</h3>
         <p>The North Rift's premier outdoor lifestyle and events destination. Four acres of landscaped gardens, premium events, glamping and unforgettable outdoor moments.</p>
         <div class="footer__contact">
           <span><i class="fas fa-map-marker-alt"></i>North Rift, Kenya</span>
-          <span><i class="fas fa-phone-alt"></i>+254 700 000 000</span>
+          <span><i class="fas fa-phone-alt"></i>+254720281227</span>
           <span><i class="fas fa-envelope"></i>hello@maruragardens.co.ke</span>
         </div>
       </div>
@@ -1597,21 +1653,47 @@ body.is-ready .hero__bar{opacity:1}
   })();
 
   /* ═══════════════════════════════════════════
-     05 · HERO SLIDESHOW
+     05 · HERO BACKGROUND VIDEO (YouTube)
      ═══════════════════════════════════════════ */
-  (function heroSlides() {
-    const slides = $$('.hero__slide');
-    const counter = $('#slideNow');
-    if (slides.length < 2) return;
+  (function heroVideo() {
+    const host = $('#heroMedia');
+    if (!host) return;
 
-    let index = 0;
-    setInterval(() => {
-      slides[index].classList.remove('is-active');
-      index = (index + 1) % slides.length;
-      slides[index].classList.add('is-active');
-      if (counter) counter.textContent = String(index + 1).padStart(2, '0');
-    }, 6000);
+    const id = youtubeId(host.dataset.video);
+    if (!id) return;
+
+    // Keep the still poster for reduced-motion visitors
+    if (reduceMotion) return;
+
+    const frame = document.createElement('iframe');
+    frame.className = 'hero__frame';
+    frame.src =
+      'https://www.youtube-nocookie.com/embed/' + id +
+      '?autoplay=1&mute=1&loop=1&playlist=' + id +
+      '&controls=0&showinfo=0&rel=0&modestbranding=1' +
+      '&playsinline=1&iv_load_policy=3&disablekb=1&fs=0';
+    frame.title = 'Marura Gardens — estate film';
+    frame.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture');
+    frame.setAttribute('tabindex', '-1');
+    frame.setAttribute('aria-hidden', 'true');
+
+    frame.addEventListener('load', () => frame.classList.add('is-live'));
+    host.appendChild(frame);
+
+    // safety net in case the load event is swallowed
+    setTimeout(() => frame.classList.add('is-live'), 2600);
   })();
+
+  /* Accepts a full URL, a share link, or a bare video ID */
+  function youtubeId(input) {
+    if (!input) return '';
+    const value = String(input).trim();
+    if (/^[A-Za-z0-9_-]{11}$/.test(value)) return value;
+    const match = value.match(
+      /(?:youtu\.be\/|v=|\/embed\/|\/shorts\/|\/v\/|\/live\/)([A-Za-z0-9_-]{11})/
+    );
+    return match ? match[1] : '';
+  }
 
   /* ═══════════════════════════════════════════
      06 · SCROLL REVEALS
