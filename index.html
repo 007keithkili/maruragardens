@@ -1878,77 +1878,81 @@ body.is-ready .hero__bar{opacity:1}
 
   /* ═══════════════════════════════════════════
      11 · ENQUIRY FORM — WhatsApp / Gmail
-     ═══════════════════════════════════════════ */
-  (function form() {
-    const el = $('#enquiryForm');
-    if (!el) return;
+  /* ═══════════════════════════════════════════
+   11 · ENQUIRY FORM — WhatsApp / Gmail
+   ═══════════════════════════════════════════ */
+(function form() {
+  const el = $('#enquiryForm');
+  if (!el) return;
 
-    const success = $('#formSuccess');
-    const nameField  = $('#name');
-    const emailField = $('#email');
-    const dateField  = $('#date');
-    const typeField  = $('#type');
-    const msgField   = $('#message');
-    const waBtn      = $('#waBtn');
-    const gmBtn      = $('#gmBtn');
+  const success = $('#formSuccess');
+  const nameField  = $('#name');
+  const emailField = $('#email');
+  const dateField  = $('#date');
+  const typeField  = $('#type');
+  const msgField   = $('#message');
+  const waBtn      = $('#waBtn');
+  const gmBtn      = $('#gmBtn');
 
-    const WHATSAPP_NUMBER = '254720281227';
-    const GMAIL_ADDRESS   = 'Maruragardens@gmail.com';
+  const WHATSAPP_NUMBER = '254720281227';
+  const GMAIL_ADDRESS   = 'Maruragardens@gmail.com';
 
-    function buildMessage() {
-      let msg = 'New Enquiry from Marura Gardens Website%0A%0A';
-      msg += '*Name:* ' + encodeURIComponent(nameField.value.trim()) + '%0A';
-      msg += '*Email:* ' + encodeURIComponent(emailField.value.trim()) + '%0A';
-      if (dateField.value) msg += '*Preferred Date:* ' + encodeURIComponent(dateField.value) + '%0A';
-      msg += '*Occasion:* ' + encodeURIComponent(typeField.value) + '%0A';
-      if (msgField.value.trim()) msg += '*Details:* ' + encodeURIComponent(msgField.value.trim());
-      return msg;
-    }
+  /* Build the raw (human-readable) message — NO encoding here */
+  function buildMessage() {
+    let msg = 'New Enquiry from Marura Gardens Website\n\n';
+    msg += '*Name:* ' + nameField.value.trim() + '\n';
+    msg += '*Email:* ' + emailField.value.trim() + '\n';
+    if (dateField.value) msg += '*Preferred Date:* ' + dateField.value + '\n';
+    msg += '*Occasion:* ' + typeField.value + '\n';
+    if (msgField.value.trim()) msg += '*Details:* ' + msgField.value.trim();
+    return msg;
+  }
 
-    function validate() {
-      let valid = true;
-      [nameField, emailField].forEach(field => {
-        if (!field.value.trim()) {
-          field.style.borderBottomColor = '#b4553f';
-          valid = false;
-        } else {
-          field.style.borderBottomColor = '';
-        }
-      });
-      if (emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
-        emailField.style.borderBottomColor = '#b4553f';
+  function validate() {
+    let valid = true;
+    [nameField, emailField].forEach(field => {
+      if (!field.value.trim()) {
+        field.style.borderBottomColor = '#b4553f';
         valid = false;
+      } else {
+        field.style.borderBottomColor = '';
       }
-      return valid;
-    }
-
-    function showSuccess(text) {
-      success.textContent = text;
-      success.classList.add('is-on');
-      setTimeout(() => success.classList.remove('is-on'), 8000);
-    }
-
-    waBtn.addEventListener('click', () => {
-      if (!validate()) return;
-      const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + buildMessage();
-      window.open(url, '_blank');
-      showSuccess('WhatsApp opened — send your message to complete the enquiry.');
     });
+    if (emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+      emailField.style.borderBottomColor = '#b4553f';
+      valid = false;
+    }
+    return valid;
+  }
 
-    gmBtn.addEventListener('click', () => {
-      if (!validate()) return;
-      const subject = encodeURIComponent('Marura Gardens Enquiry — ' + (typeField.value || 'General'));
-      const body = buildMessage()
-        .replace(/%0A/g, '\n')
-        .replace(/%2A/g, '*');
-      const url = 'https://mail.google.com/mail/?view=cm&fs=1' +
-                  '&to=' + encodeURIComponent(GMAIL_ADDRESS) +
-                  '&su=' + subject +
-                  '&body=' + encodeURIComponent(body);
-      window.open(url, '_blank');
-      showSuccess('Gmail opened — send your email to complete the enquiry.');
-    });
-  })();
+  function showSuccess(text) {
+    success.textContent = text;
+    success.classList.add('is-on');
+    setTimeout(() => success.classList.remove('is-on'), 8000);
+  }
+
+  /* WhatsApp — encode the whole raw message exactly once */
+  waBtn.addEventListener('click', () => {
+    if (!validate()) return;
+    const url = 'https://wa.me/' + WHATSAPP_NUMBER +
+                '?text=' + encodeURIComponent(buildMessage());
+    window.open(url, '_blank');
+    showSuccess('WhatsApp opened — send your message to complete the enquiry.');
+  });
+
+  /* Gmail — encode subject and body independently, each exactly once */
+  gmBtn.addEventListener('click', () => {
+    if (!validate()) return;
+    const subject = 'Marura Gardens Enquiry — ' + (typeField.value || 'General');
+    const body = buildMessage();
+    const url = 'https://mail.google.com/mail/?view=cm&fs=1' +
+                '&to=' + encodeURIComponent(GMAIL_ADDRESS) +
+                '&su=' + encodeURIComponent(subject) +
+                '&body=' + encodeURIComponent(body);
+    window.open(url, '_blank');
+    showSuccess('Gmail opened — send your email to complete the enquiry.');
+  });
+})();
 
   /* ═══════════════════════════════════════════
      12 · SMOOTH ANCHORS (respect reduced motion)
