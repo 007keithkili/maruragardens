@@ -209,7 +209,7 @@ em{font-style:italic;color:var(--moss)}
   width:clamp(38px,4.6vw,48px);
   height:clamp(38px,4.6vw,48px);
   flex-shrink:0;
-  object-fit:cover;              /* switch to 'contain' if the logo gets cropped */
+  object-fit:cover;
   object-position:center;
   border-radius:12px;
   background:var(--forest);
@@ -221,7 +221,6 @@ em{font-style:italic;color:var(--moss)}
   transform:scale(1.06) rotate(-6deg);
   box-shadow:0 12px 26px -12px rgba(10,19,16,.85);
 }
-/* keep the wordmark from pushing the nav CTA on very small phones */
 @media (max-width:400px){
   .logo span{font-size:.95rem}
 }
@@ -803,6 +802,21 @@ body.is-ready .hero__bar{opacity:1}
 }
 .form__success.is-on{display:block}
 
+/* form action buttons */
+.form__actions{
+  display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin-top:.6rem;
+}
+.btn--wa{
+  border-color:#25D366;color:#128C7E;background:transparent;
+}
+.btn--wa::before{background:#25D366}
+.btn--wa:hover{color:#fff;border-color:#25D366}
+.btn--gm{
+  border-color:#EA4335;color:#EA4335;background:transparent;
+}
+.btn--gm::before{background:#EA4335}
+.btn--gm:hover{color:#fff;border-color:#EA4335}
+
 /* ══════════════════════════════════════════════════════════
    18 · FOOTER
    ══════════════════════════════════════════════════════════ */
@@ -1012,7 +1026,7 @@ body.is-ready .hero__bar{opacity:1}
 
 <!-- ═══════════ HERO ═══════════ -->
 <section class="hero" id="home">
-  <!-- ▼▼ PASTE YOUR YOUTUBE LINK HERE ▼▼ -->
+  <!-- ▼▼ YOUTUBE LINK ▼▼ -->
   <div class="hero__media" id="heroMedia"
        data-video="https://youtu.be/mv-uSN-YEa0"
        aria-hidden="true">
@@ -1032,7 +1046,7 @@ body.is-ready .hero__bar{opacity:1}
 
     <div class="hero__foot">
       <p class="hero__lede">
-       
+        
       </p>
       <div class="hero__actions">
         <a href="#contact" class="btn btn--light"><span>Begin your journey <i class="fas fa-arrow-right"></i></span></a>
@@ -1350,6 +1364,7 @@ body.is-ready .hero__bar{opacity:1}
       <p>Our gardens are designed to let every event breathe — no congestion, just nature.</p>
     </header>
 
+    <!-- Enhanced gallery grid with refined image treatment -->
     <div class="gallery__grid" data-reveal>
       <button class="gallery__item" data-cursor aria-label="Open image: garden wedding ceremony">
         <img src="https://i.pinimg.com/736x/01/4d/46/014d4665e227c019c85cfc28de37ca8d.jpg" alt="Garden wedding ceremony" loading="lazy" />
@@ -1413,8 +1428,8 @@ body.is-ready .hero__bar{opacity:1}
       <h2>Let's make it <em>unforgettable.</em></h2>
       <p>Tell us about your occasion and our team will come back to you within one working day with availability and a tailored proposal.</p>
       <div class="cta__contact">
-        <a href="tel:+254700000000"><i class="fas fa-phone-alt"></i>+254 700 000 000</a>
-        <a href="mailto:hello@maruragardens.co.ke"><i class="fas fa-envelope"></i>hello@maruragardens.co.ke</a>
+        <a href="tel:+254720281227"><i class="fas fa-phone-alt"></i>+254 720 281 227</a>
+        <a href="mailto:Maruragardens@gmail.com"><i class="fas fa-envelope"></i>Maruragardens@gmail.com</a>
         <a href="#"><i class="fas fa-map-marker-alt"></i>North Rift, Kenya</a>
       </div>
     </div>
@@ -1423,11 +1438,11 @@ body.is-ready .hero__bar{opacity:1}
       <div class="form__row">
         <div class="field">
           <label for="name">Full name</label>
-          <input id="name" name="name" type="text" placeholder="" required />
+          <input id="name" name="name" type="text" placeholder="Your name" required />
         </div>
         <div class="field">
           <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="kili@email.com" required />
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
         </div>
       </div>
 
@@ -1454,9 +1469,13 @@ body.is-ready .hero__bar{opacity:1}
         <textarea id="message" name="message" placeholder="Guest numbers, vision, anything we should know…"></textarea>
       </div>
 
-      <button type="submit" class="btn btn--dark"><span>Send enquiry <i class="fas fa-arrow-right"></i></span></button>
-      <p class="form__note">We reply within one working day. Your details are never shared.</p>
-      <div class="form__success" id="formSuccess">Thank you — your enquiry has been received. We'll be in touch shortly.</div>
+      <div class="form__actions">
+        <button type="button" class="btn btn--wa" id="waBtn"><span><i class="fab fa-whatsapp"></i> Send via WhatsApp</span></button>
+        <button type="button" class="btn btn--gm" id="gmBtn"><span><i class="fas fa-envelope"></i> Send via Gmail</span></button>
+      </div>
+
+      <p class="form__note">Choose WhatsApp or Gmail to send your enquiry. We reply within one working day.</p>
+      <div class="form__success" id="formSuccess">Thank you — your enquiry has been prepared. Please complete sending via your chosen app.</div>
     </form>
   </div>
 </section>
@@ -1476,7 +1495,7 @@ body.is-ready .hero__bar{opacity:1}
         <div class="footer__contact">
           <span><i class="fas fa-map-marker-alt"></i>North Rift, Kenya</span>
           <span><i class="fas fa-phone-alt"></i>+254720281227</span>
-          <span><i class="fas fa-envelope"></i>hello@maruragardens.co.ke</span>
+          <span><i class="fas fa-envelope"></i>Maruragardens@gmail.com</span>
         </div>
       </div>
 
@@ -1660,8 +1679,6 @@ body.is-ready .hero__bar{opacity:1}
 
     const id = youtubeId(host.dataset.video);
     if (!id) return;
-
-    // Keep the still poster for reduced-motion visitors
     if (reduceMotion) return;
 
     const frame = document.createElement('iframe');
@@ -1679,11 +1696,9 @@ body.is-ready .hero__bar{opacity:1}
     frame.addEventListener('load', () => frame.classList.add('is-live'));
     host.appendChild(frame);
 
-    // safety net in case the load event is swallowed
     setTimeout(() => frame.classList.add('is-live'), 2600);
   })();
 
-  /* Accepts a full URL, a share link, or a bare video ID */
   function youtubeId(input) {
     if (!input) return '';
     const value = String(input).trim();
@@ -1718,7 +1733,6 @@ body.is-ready .hero__bar{opacity:1}
 
     items.forEach(el => io.observe(el));
 
-    // experience panels use their own clip reveal
     const expIO = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1863,22 +1877,37 @@ body.is-ready .hero__bar{opacity:1}
   })();
 
   /* ═══════════════════════════════════════════
-     11 · ENQUIRY FORM
+     11 · ENQUIRY FORM — WhatsApp / Gmail
      ═══════════════════════════════════════════ */
   (function form() {
     const el = $('#enquiryForm');
     if (!el) return;
 
     const success = $('#formSuccess');
+    const nameField  = $('#name');
+    const emailField = $('#email');
+    const dateField  = $('#date');
+    const typeField  = $('#type');
+    const msgField   = $('#message');
+    const waBtn      = $('#waBtn');
+    const gmBtn      = $('#gmBtn');
 
-    el.addEventListener('submit', e => {
-      e.preventDefault();
+    const WHATSAPP_NUMBER = '254720281227';
+    const GMAIL_ADDRESS   = 'Maruragardens@gmail.com';
 
-      const name  = $('#name');
-      const email = $('#email');
+    function buildMessage() {
+      let msg = 'New Enquiry from Marura Gardens Website%0A%0A';
+      msg += '*Name:* ' + encodeURIComponent(nameField.value.trim()) + '%0A';
+      msg += '*Email:* ' + encodeURIComponent(emailField.value.trim()) + '%0A';
+      if (dateField.value) msg += '*Preferred Date:* ' + encodeURIComponent(dateField.value) + '%0A';
+      msg += '*Occasion:* ' + encodeURIComponent(typeField.value) + '%0A';
+      if (msgField.value.trim()) msg += '*Details:* ' + encodeURIComponent(msgField.value.trim());
+      return msg;
+    }
+
+    function validate() {
       let valid = true;
-
-      [name, email].forEach(field => {
+      [nameField, emailField].forEach(field => {
         if (!field.value.trim()) {
           field.style.borderBottomColor = '#b4553f';
           valid = false;
@@ -1886,25 +1915,38 @@ body.is-ready .hero__bar{opacity:1}
           field.style.borderBottomColor = '';
         }
       });
-
-      if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
-        email.style.borderBottomColor = '#b4553f';
+      if (emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+        emailField.style.borderBottomColor = '#b4553f';
         valid = false;
       }
+      return valid;
+    }
 
-      if (!valid) return;
+    function showSuccess(text) {
+      success.textContent = text;
+      success.classList.add('is-on');
+      setTimeout(() => success.classList.remove('is-on'), 8000);
+    }
 
-      const button = $('button[type="submit"]', el);
-      button.querySelector('span').textContent = 'Sending…';
-      button.disabled = true;
+    waBtn.addEventListener('click', () => {
+      if (!validate()) return;
+      const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + buildMessage();
+      window.open(url, '_blank');
+      showSuccess('WhatsApp opened — send your message to complete the enquiry.');
+    });
 
-      setTimeout(() => {
-        el.reset();
-        button.querySelector('span').textContent = 'Send enquiry';
-        button.disabled = false;
-        success.classList.add('is-on');
-        setTimeout(() => success.classList.remove('is-on'), 7000);
-      }, 900);
+    gmBtn.addEventListener('click', () => {
+      if (!validate()) return;
+      const subject = encodeURIComponent('Marura Gardens Enquiry — ' + (typeField.value || 'General'));
+      const body = buildMessage()
+        .replace(/%0A/g, '\n')
+        .replace(/%2A/g, '*');
+      const url = 'https://mail.google.com/mail/?view=cm&fs=1' +
+                  '&to=' + encodeURIComponent(GMAIL_ADDRESS) +
+                  '&su=' + subject +
+                  '&body=' + encodeURIComponent(body);
+      window.open(url, '_blank');
+      showSuccess('Gmail opened — send your email to complete the enquiry.');
     });
   })();
 
