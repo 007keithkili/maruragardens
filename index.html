@@ -124,6 +124,8 @@ em{font-style:italic;color:var(--moss)}
 .btn:hover::before{transform:translateY(0)}
 .btn i{font-size:.72em;transition:transform .45s var(--ease)}
 .btn:hover i{transform:translateX(4px)}
+/* real inline SVG icons (WhatsApp / email) */
+.btn svg{width:1.05em;height:1.05em;flex-shrink:0;fill:currentColor;display:block}
 
 .btn--light{color:var(--paper);border-color:rgba(250,247,240,.45)}
 .btn--light::before{background:var(--paper)}
@@ -1438,30 +1440,35 @@ body.is-ready .hero__bar{opacity:1}
       <div class="form__row">
         <div class="field">
           <label for="name">Full name</label>
-          <input id="name" name="name" type="text" placeholder="Your name" required />
+          <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
         </div>
         <div class="field">
           <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
         </div>
       </div>
 
       <div class="form__row">
         <div class="field">
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" placeholder="+254 7XX XXX XXX" autocomplete="tel" inputmode="tel" />
+        </div>
+        <div class="field">
           <label for="date">Preferred date</label>
           <input id="date" name="date" type="date" />
         </div>
-        <div class="field">
-          <label for="type">Occasion</label>
-          <select id="type" name="type">
-            <option>Wedding</option>
-            <option>Corporate retreat</option>
-            <option>Glamping / cabin stay</option>
-            <option>Family gathering</option>
-            <option>Classic car event</option>
-            <option>Other</option>
-          </select>
-        </div>
+      </div>
+
+      <div class="field">
+        <label for="type">Occasion</label>
+        <select id="type" name="type">
+          <option>Wedding</option>
+          <option>Corporate retreat</option>
+          <option>Glamping / cabin stay</option>
+          <option>Family gathering</option>
+          <option>Classic car event</option>
+          <option>Other</option>
+        </select>
       </div>
 
       <div class="field">
@@ -1470,8 +1477,18 @@ body.is-ready .hero__bar{opacity:1}
       </div>
 
       <div class="form__actions">
-        <button type="button" class="btn btn--wa" id="waBtn"><span><i class="fab fa-whatsapp"></i> Send via WhatsApp</span></button>
-        <button type="button" class="btn btn--gm" id="gmBtn"><span><i class="fas fa-envelope"></i> Send via Gmail</span></button>
+        <button type="button" class="btn btn--wa" id="waBtn">
+          <span>
+            <svg viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+            Send via WhatsApp
+          </span>
+        </button>
+        <button type="button" class="btn btn--gm" id="gmBtn">
+          <span>
+            <svg viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+            Send via Gmail
+          </span>
+        </button>
       </div>
 
       <p class="form__note">Choose WhatsApp or Gmail to send your enquiry. We reply within one working day.</p>
@@ -1878,81 +1895,92 @@ body.is-ready .hero__bar{opacity:1}
 
   /* ═══════════════════════════════════════════
      11 · ENQUIRY FORM — WhatsApp / Gmail
-  /* ═══════════════════════════════════════════
-   11 · ENQUIRY FORM — WhatsApp / Gmail
-   ═══════════════════════════════════════════ */
-(function form() {
-  const el = $('#enquiryForm');
-  if (!el) return;
+     ═══════════════════════════════════════════ */
+  (function form() {
+    const el = $('#enquiryForm');
+    if (!el) return;
 
-  const success = $('#formSuccess');
-  const nameField  = $('#name');
-  const emailField = $('#email');
-  const dateField  = $('#date');
-  const typeField  = $('#type');
-  const msgField   = $('#message');
-  const waBtn      = $('#waBtn');
-  const gmBtn      = $('#gmBtn');
+    const success    = $('#formSuccess');
+    const nameField  = $('#name');
+    const emailField = $('#email');
+    const phoneField = $('#phone');
+    const dateField  = $('#date');
+    const typeField  = $('#type');
+    const msgField   = $('#message');
+    const waBtn      = $('#waBtn');
+    const gmBtn      = $('#gmBtn');
 
-  const WHATSAPP_NUMBER = '254720281227';
-  const GMAIL_ADDRESS   = 'Maruragardens@gmail.com';
+    const WHATSAPP_NUMBER = '254720281227';
+    const GMAIL_ADDRESS   = 'Maruragardens@gmail.com';
 
-  /* Build the raw (human-readable) message — NO encoding here */
-  function buildMessage() {
-    let msg = 'New Enquiry from Marura Gardens Website\n\n';
-    msg += '*Name:* ' + nameField.value.trim() + '\n';
-    msg += '*Email:* ' + emailField.value.trim() + '\n';
-    if (dateField.value) msg += '*Preferred Date:* ' + dateField.value + '\n';
-    msg += '*Occasion:* ' + typeField.value + '\n';
-    if (msgField.value.trim()) msg += '*Details:* ' + msgField.value.trim();
-    return msg;
-  }
+    /* Build the raw (human-readable) message — NO encoding here */
+    function buildMessage() {
+      let msg = 'New Enquiry from Marura Gardens Website\n\n';
+      msg += '*Name:* ' + nameField.value.trim() + '\n';
+      msg += '*Email:* ' + emailField.value.trim() + '\n';
+      if (phoneField.value.trim()) msg += '*Phone:* ' + phoneField.value.trim() + '\n';
+      if (dateField.value) msg += '*Preferred Date:* ' + dateField.value + '\n';
+      msg += '*Occasion:* ' + typeField.value + '\n';
+      if (msgField.value.trim()) msg += '*Details:* ' + msgField.value.trim();
+      return msg;
+    }
 
-  function validate() {
-    let valid = true;
-    [nameField, emailField].forEach(field => {
-      if (!field.value.trim()) {
-        field.style.borderBottomColor = '#b4553f';
+    function validate() {
+      let valid = true;
+
+      [nameField, emailField].forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderBottomColor = '#b4553f';
+          valid = false;
+        } else {
+          field.style.borderBottomColor = '';
+        }
+      });
+
+      if (emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
+        emailField.style.borderBottomColor = '#b4553f';
+        valid = false;
+      }
+
+      const phone = phoneField.value.trim();
+      if (phone && !/^\+?[\d\s().-]{7,20}$/.test(phone)) {
+        phoneField.style.borderBottomColor = '#b4553f';
         valid = false;
       } else {
-        field.style.borderBottomColor = '';
+        phoneField.style.borderBottomColor = '';
       }
-    });
-    if (emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)) {
-      emailField.style.borderBottomColor = '#b4553f';
-      valid = false;
+
+      return valid;
     }
-    return valid;
-  }
 
-  function showSuccess(text) {
-    success.textContent = text;
-    success.classList.add('is-on');
-    setTimeout(() => success.classList.remove('is-on'), 8000);
-  }
+    function showSuccess(text) {
+      success.textContent = text;
+      success.classList.add('is-on');
+      setTimeout(() => success.classList.remove('is-on'), 8000);
+    }
 
-  /* WhatsApp — encode the whole raw message exactly once */
-  waBtn.addEventListener('click', () => {
-    if (!validate()) return;
-    const url = 'https://wa.me/' + WHATSAPP_NUMBER +
-                '?text=' + encodeURIComponent(buildMessage());
-    window.open(url, '_blank');
-    showSuccess('WhatsApp opened — send your message to complete the enquiry.');
-  });
+    /* WhatsApp — encode the whole raw message exactly once */
+    waBtn.addEventListener('click', () => {
+      if (!validate()) return;
+      const url = 'https://wa.me/' + WHATSAPP_NUMBER +
+                  '?text=' + encodeURIComponent(buildMessage());
+      window.open(url, '_blank');
+      showSuccess('WhatsApp opened — send your message to complete the enquiry.');
+    });
 
-  /* Gmail — encode subject and body independently, each exactly once */
-  gmBtn.addEventListener('click', () => {
-    if (!validate()) return;
-    const subject = 'Marura Gardens Enquiry — ' + (typeField.value || 'General');
-    const body = buildMessage();
-    const url = 'https://mail.google.com/mail/?view=cm&fs=1' +
-                '&to=' + encodeURIComponent(GMAIL_ADDRESS) +
-                '&su=' + encodeURIComponent(subject) +
-                '&body=' + encodeURIComponent(body);
-    window.open(url, '_blank');
-    showSuccess('Gmail opened — send your email to complete the enquiry.');
-  });
-})();
+    /* Gmail — encode subject and body independently, each exactly once */
+    gmBtn.addEventListener('click', () => {
+      if (!validate()) return;
+      const subject = 'Marura Gardens Enquiry — ' + (typeField.value || 'General');
+      const body = buildMessage();
+      const url = 'https://mail.google.com/mail/?view=cm&fs=1' +
+                  '&to=' + encodeURIComponent(GMAIL_ADDRESS) +
+                  '&su=' + encodeURIComponent(subject) +
+                  '&body=' + encodeURIComponent(body);
+      window.open(url, '_blank');
+      showSuccess('Gmail opened — send your email to complete the enquiry.');
+    });
+  })();
 
   /* ═══════════════════════════════════════════
      12 · SMOOTH ANCHORS (respect reduced motion)
